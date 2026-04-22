@@ -501,6 +501,26 @@ html, body {
 [data-theme="dark"] [class*="docblock-argstable"] td code {
   color: var(--fabric-text-secondary) !important;
 }
+/* Argstable controls column — boolean pill (False/True), "Set ..." buttons,
+   the edit/revert affordance. These render as <label>/<button>/<input>
+   with hardcoded light bg via emotion classes. */
+[data-theme="dark"] [class*="docblock-argstable"] td label,
+[data-theme="dark"] [class*="docblock-argstable"] td button,
+[data-theme="dark"] [class*="docblock-argstable"] td input[type="text"],
+[data-theme="dark"] [class*="docblock-argstable"] td input[type="number"],
+[data-theme="dark"] [class*="docblock-argstable"] td textarea,
+[data-theme="dark"] [class*="docblock-argstable"] td select {
+  background-color: var(--fabric-bg-secondary) !important;
+  color: var(--fabric-text-primary) !important;
+  border-color: var(--fabric-border-secondary) !important;
+}
+/* The active half of the boolean pill (whichever is selected) */
+[data-theme="dark"] [class*="docblock-argstable"] td label[class*="checked"],
+[data-theme="dark"] [class*="docblock-argstable"] td label input:checked + *,
+[data-theme="dark"] [class*="docblock-argstable"] td label:has(input:checked) {
+  background-color: var(--fabric-bg-primary) !important;
+  color: var(--fabric-text-primary) !important;
+}
 /* Links */
 [data-theme="dark"] .sbdocs-content a {
   color: var(--fabric-text-brand-primary) !important;
