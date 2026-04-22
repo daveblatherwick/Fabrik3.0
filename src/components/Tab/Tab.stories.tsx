@@ -4,7 +4,6 @@ import { Tabs } from "./Tab";
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
   component: Tabs,
-  tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof Tabs>;

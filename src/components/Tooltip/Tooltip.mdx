@@ -1,0 +1,52 @@
+import { Meta, Title, Primary, Controls, Stories } from "@storybook/addon-docs/blocks";
+import { ComponentMeta } from "../../docs/ComponentMeta";
+import * as TooltipStories from "./Tooltip.stories";
+
+<Meta of={TooltipStories} />
+
+<Title />
+
+A small popover that explains a target element on hover / focus. Four sides (top, right, bottom, left), configurable delay.
+
+<Primary />
+
+<Controls />
+
+<Stories />
+
+<ComponentMeta
+  status="alpha"
+  version="0.1.0"
+  owner="Dave Blatherwick"
+  lastUpdated="2026-04-22"
+  figma={{
+    url: "https://www.figma.com/design/3AZXedsXs7QlKc5dJmzQfl/Adaptive---Design-System?node-id=272-5126",
+    label: "Tooltips (Fabric DS)",
+    nodeId: "272:5126",
+  }}
+  designNotes={[
+    "Built on @radix-ui/react-tooltip for positioning, collision handling, and interaction semantics. The chrome (bg, border, arrow colour) is pure Fabric tokens.",
+    "Arrow uses a filled triangle with a 1px stroke in the same token as the border so the tooltip edge reads as one continuous outline.",
+    "Default delayDuration is 200ms — long enough to avoid tooltip spam on pointer drift, short enough to feel responsive.",
+  ]}
+  a11yNotes={[
+    "Radix handles role=tooltip, focus-triggered visibility, Esc dismissal, and aria-describedby wiring automatically.",
+    "Supports keyboard-only users — tooltips open on focus, not just hover.",
+    "Max-width 280px with wrap; long content reads comfortably without pushing off-screen.",
+  ]}
+  limitations={[
+    "No arrow-less variant.",
+    "No rich content patterns (links, multiple sections) — Radix supports them but we haven't designed a tokenised style yet.",
+    "Single Provider per Tooltip instance, which means delay grouping across multiple tooltips isn't shared. Lift Provider up in-app if needed.",
+  ]}
+  changelog={[
+    {
+      date: "2026-04-22",
+      version: "0.1.0",
+      changes: [
+        "Initial variant: Radix-powered Tooltip with side prop and configurable delay.",
+        "Themed bg, text, border, arrow via --fabric-* tokens.",
+      ],
+    },
+  ]}
+/>

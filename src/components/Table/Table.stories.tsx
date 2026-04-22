@@ -4,7 +4,6 @@ import { Table, TableRow, TableHeaderCell, TableCell, type SortDirection } from 
 
 const meta: Meta = {
   title: "Components/Table",
-  tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj;

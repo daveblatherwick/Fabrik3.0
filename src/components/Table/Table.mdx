@@ -1,0 +1,66 @@
+import { Meta, Title, Primary, Controls, Stories } from "@storybook/addon-docs/blocks";
+import { ComponentMeta } from "../../docs/ComponentMeta";
+import * as TableStories from "./Table.stories";
+
+<Meta of={TableStories} />
+
+<Title />
+
+Primitive table building blocks — `Table`, `TableRow`, `TableHeaderCell`, `TableCell` — designed for dense, numerical fintech data.
+
+<Primary />
+
+<Controls />
+
+<Stories />
+
+<ComponentMeta
+  status="alpha"
+  version="0.1.0"
+  owner="Dave Blatherwick"
+  lastUpdated="2026-04-22"
+  figma={[
+    {
+      url: "https://www.figma.com/design/3AZXedsXs7QlKc5dJmzQfl/Adaptive---Design-System?node-id=4359-4452",
+      label: "Table Header",
+      nodeId: "4359:4452",
+    },
+    {
+      url: "https://www.figma.com/design/3AZXedsXs7QlKc5dJmzQfl/Adaptive---Design-System?node-id=4360-1900",
+      label: "Table Header Cell",
+      nodeId: "4360:1900",
+    },
+    {
+      url: "https://www.figma.com/design/3AZXedsXs7QlKc5dJmzQfl/Adaptive---Design-System?node-id=4360-4099",
+      label: "Table Cell",
+      nodeId: "4360:4099",
+    },
+  ]}
+  designNotes={[
+    "Primitive parts rather than a high-level DataTable — consumers compose <Table><thead><TableRow><TableHeaderCell/></TableRow></thead><tbody>...</tbody></Table>.",
+    "Numeric columns use font-variant-numeric: tabular-nums so digits line up visually across rows.",
+    "Value semantics (positive / negative) are a prop on TableCell — drives colour tokens directly (text-success-primary / text-error-primary).",
+    "Sort state is fully controlled by the consumer — component just renders the indicator.",
+  ]}
+  a11yNotes={[
+    "Sortable headers set aria-sort to ascending / descending / unset based on the sort prop.",
+    "Uses native <table>, <thead>, <tbody>, <tr>, <th>, <td> — assistive tech reads structure correctly.",
+    "Sort indicator is aria-hidden; consumers should announce sort state changes via live regions if needed.",
+  ]}
+  limitations={[
+    "No row selection, no sticky header, no column resizing, no virtualisation.",
+    "No built-in sorting logic — consumer manages data and sort state.",
+    "No responsive/stacked layout for small viewports.",
+  ]}
+  changelog={[
+    {
+      date: "2026-04-22",
+      version: "0.1.0",
+      changes: [
+        "Initial primitives: Table / TableRow / TableHeaderCell / TableCell.",
+        "Align (left/center/right), numeric, and value (positive/negative) variants on cells.",
+        "Sortable header with aria-sort + tri-state toggle.",
+      ],
+    },
+  ]}
+/>

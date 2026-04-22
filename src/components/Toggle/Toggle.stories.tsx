@@ -4,7 +4,6 @@ import { Toggle } from "./Toggle";
 const meta: Meta<typeof Toggle> = {
   title: "Components/Toggle",
   component: Toggle,
-  tags: ["autodocs"],
   argTypes: { size: { control: "inline-radio", options: ["sm", "md", "lg"] } },
   args: { label: "Enable notifications", size: "md" },
 };

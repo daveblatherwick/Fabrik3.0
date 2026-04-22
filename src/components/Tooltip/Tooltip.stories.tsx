@@ -5,7 +5,6 @@ import { Button } from "../Button/Button";
 const meta: Meta<typeof Tooltip> = {
   title: "Components/Tooltip",
   component: Tooltip,
-  tags: ["autodocs"],
   argTypes: { side: { control: "inline-radio", options: ["top", "right", "bottom", "left"] } },
   args: { content: "Tooltip text", side: "top" },
 };

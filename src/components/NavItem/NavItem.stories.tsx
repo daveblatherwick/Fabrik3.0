@@ -11,7 +11,6 @@ const DotIcon = () => (
 const meta: Meta<typeof NavItem> = {
   title: "Components/NavItem",
   component: NavItem,
-  tags: ["autodocs"],
   args: { children: "Dashboard", icon: <DotIcon /> },
 };
 export default meta;

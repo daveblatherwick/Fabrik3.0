@@ -1,0 +1,52 @@
+import { Meta, Title, Primary, Controls, Stories } from "@storybook/addon-docs/blocks";
+import { ComponentMeta } from "../../docs/ComponentMeta";
+import * as CheckboxStories from "./Checkbox.stories";
+
+<Meta of={CheckboxStories} />
+
+<Title />
+
+Checkbox with optional label, description, and an indeterminate state.
+
+<Primary />
+
+<Controls />
+
+<Stories />
+
+<ComponentMeta
+  status="alpha"
+  version="0.1.0"
+  owner="Dave Blatherwick"
+  lastUpdated="2026-04-22"
+  figma={{
+    url: "https://www.figma.com/design/3AZXedsXs7QlKc5dJmzQfl/Adaptive---Design-System?node-id=225-1163",
+    label: "Checkbox (Fabric DS, 72 variants)",
+    nodeId: "225:1163",
+  }}
+  designNotes={[
+    "Native <input type='checkbox'> visually hidden; a styled <span> receives the themed box — keeps keyboard, focus, and screen-reader behaviour from the platform.",
+    "Indeterminate is set imperatively via useEffect on the input ref because HTML has no corresponding attribute.",
+    "Check / minus glyphs are inline SVGs coloured with currentColor so they inherit the mark colour.",
+  ]}
+  a11yNotes={[
+    "Native semantics mean no extra ARIA work — labels, fieldsets, and forms all attach correctly.",
+    "Focus ring uses --fabric-focus-ring at 2px outline on the visual box.",
+    "Click target includes the label text since the root is a <label>.",
+  ]}
+  limitations={[
+    "No validation/error visual.",
+    "No asynchronous loading state.",
+    "Description text isn't associated via aria-describedby yet.",
+  ]}
+  changelog={[
+    {
+      date: "2026-04-22",
+      version: "0.1.0",
+      changes: [
+        "Initial variant: checked / unchecked / indeterminate / disabled, three sizes.",
+        "Tokenised background, border, and check colour via --fabric-* vars.",
+      ],
+    },
+  ]}
+/>

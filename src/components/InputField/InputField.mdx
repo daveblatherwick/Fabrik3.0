@@ -1,0 +1,53 @@
+import { Meta, Title, Primary, Controls, Stories } from "@storybook/addon-docs/blocks";
+import { ComponentMeta } from "../../docs/ComponentMeta";
+import * as InputFieldStories from "./InputField.stories";
+
+<Meta of={InputFieldStories} />
+
+<Title />
+
+A text input with optional label, hint, error, and leading/trailing adornments.
+
+<Primary />
+
+<Controls />
+
+<Stories />
+
+<ComponentMeta
+  status="alpha"
+  version="0.1.0"
+  owner="Dave Blatherwick"
+  lastUpdated="2026-04-22"
+  figma={{
+    url: "https://www.figma.com/design/3AZXedsXs7QlKc5dJmzQfl/Adaptive---Design-System?node-id=6040-826",
+    label: "Input Field (Fabric DS, 54 variants)",
+    nodeId: "6040:826",
+  }}
+  designNotes={[
+    "Focus state rendered as a 3px token-tinted shadow ring — cheaper than a second border change and doesn't reflow.",
+    "Error state swaps the border to --fabric-border-error and the focus ring to --fabric-focus-ring-error.",
+    "Adornment slots accept any ReactNode — icons, short text, small buttons — and inherit the muted foreground colour.",
+  ]}
+  a11yNotes={[
+    "Label, input, and hint are linked via id / htmlFor / aria-describedby; no manual wiring needed by consumers.",
+    "aria-invalid is set implicitly when the error prop is present.",
+    "Focused state is a real :focus driven by the underlying input — works with Tab, Shift+Tab, and programmatic focus.",
+  ]}
+  limitations={[
+    "No password-reveal affordance.",
+    "No size prop — one default height.",
+    "No integrated character counter or max-length visualisation.",
+    "Doesn't support multi-line (no textarea variant).",
+  ]}
+  changelog={[
+    {
+      date: "2026-04-22",
+      version: "0.1.0",
+      changes: [
+        "Initial variant: label / hint / error / leading & trailing adornments.",
+        "Themed via --fabric-input-* tokens for bg, fg, border across light / dark.",
+      ],
+    },
+  ]}
+/>

@@ -1,0 +1,52 @@
+import { Meta, Title, Primary, Controls, Stories } from "@storybook/addon-docs/blocks";
+import { ComponentMeta } from "../../docs/ComponentMeta";
+import * as DropdownItemStories from "./DropdownItem.stories";
+
+<Meta of={DropdownItemStories} />
+
+<Title />
+
+A single row inside a dropdown or menu. Optional leading icon, trailing meta (shortcut, badge), and a selected state.
+
+<Primary />
+
+<Controls />
+
+<Stories />
+
+<ComponentMeta
+  status="alpha"
+  version="0.1.0"
+  owner="Dave Blatherwick"
+  lastUpdated="2026-04-22"
+  figma={{
+    url: "https://www.figma.com/design/3AZXedsXs7QlKc5dJmzQfl/Adaptive---Design-System?node-id=223-3092",
+    label: "Dropdown list item (Fabric DS)",
+    nodeId: "223:3092",
+  }}
+  designNotes={[
+    "Renders as a <button role='menuitem'> so it works inside <div role='menu'> or <ul role='menu'> constructs.",
+    "Selected state uses brand tokens (brand-50 bg + brand-700 text in light, translucent brand tint in dark).",
+    "Trailing meta column is fixed width via flex-shrink: 0, so long labels truncate rather than pushing the shortcut off-screen.",
+  ]}
+  a11yNotes={[
+    "role=menuitem and button semantics mean assistive tech announces it correctly when nested in a menu.",
+    "Focus ring rendered inside the row (outline-offset: -2px) to avoid clipping at the menu edge.",
+    "Disabled state uses the text-disabled token, not just opacity, to keep contrast predictable.",
+  ]}
+  limitations={[
+    "Doesn't handle menu navigation (arrow keys, home/end, type-ahead) — pair with a Menu component for that.",
+    "No nested submenu support.",
+    "No destructive variant (e.g. red 'Delete').",
+  ]}
+  changelog={[
+    {
+      date: "2026-04-22",
+      version: "0.1.0",
+      changes: [
+        "Initial variant: icon + label + meta + selected indicator.",
+        "Hover, focus, selected, disabled states themed via tokens.",
+      ],
+    },
+  ]}
+/>

@@ -4,7 +4,6 @@ import { DropdownItem } from "./DropdownItem";
 const meta: Meta<typeof DropdownItem> = {
   title: "Components/DropdownItem",
   component: DropdownItem,
-  tags: ["autodocs"],
   args: { children: "Option A" },
 };
 export default meta;
