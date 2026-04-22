@@ -1,0 +1,82 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fabric-spacing-md);
+  width: 184px;
+  font-family: var(--fabric-font-family-body);
+  color: var(--fabric-text-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--fabric-spacing-xs) var(--fabric-spacing-md);
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fabric-spacing-xs);
+  font-size: var(--fabric-text-lg);
+  font-weight: var(--fabric-font-weight-semibold);
+  color: var(--fabric-orderbook-title-fg);
+  white-space: nowrap;
+}
+
+.titleIcon { display: inline-flex; color: currentColor; }
+
+.headerActions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fabric-spacing-xs);
+  color: var(--fabric-fg-tertiary);
+}
+
+.iconButton {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: var(--fabric-spacing-xs);
+  cursor: pointer;
+  display: inline-flex;
+  color: inherit;
+  border-radius: var(--fabric-radius-xs);
+}
+.iconButton:hover {
+  background: var(--fabric-orderbook-row-hover);
+  color: var(--fabric-text-primary);
+}
+.iconButton:focus-visible {
+  outline: 2px solid var(--fabric-focus-ring);
+  outline-offset: 2px;
+}
+
+.body {
+  position: relative;
+  background-color: var(--fabric-depthchart-bg);
+  border: 1px solid var(--fabric-border-secondary);
+  border-radius: var(--fabric-radius-sm);
+  overflow: hidden;
+  flex: 1 1 auto;
+  min-height: 280px;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.askArea { fill: var(--fabric-depthchart-ask-fill); stroke: var(--fabric-depthchart-ask-stroke); stroke-width: 1.25; }
+.bidArea { fill: var(--fabric-depthchart-bid-fill); stroke: var(--fabric-depthchart-bid-stroke); stroke-width: 1.25; }
+
+.grid { stroke: var(--fabric-depthchart-grid); stroke-width: 1; stroke-dasharray: 3 3; }
+.gridTick { stroke: var(--fabric-depthchart-label); stroke-width: 1.5; }
+
+.label {
+  font-size: var(--fabric-text-md);
+  font-weight: var(--fabric-font-weight-medium);
+  fill: var(--fabric-depthchart-label);
+  font-variant-numeric: tabular-nums;
+}

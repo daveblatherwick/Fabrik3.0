@@ -329,6 +329,15 @@
   --fabric-orderbook-bid: var(--fabric-success-600);
   --fabric-orderbook-depth-ask: rgba(115, 0, 0, 0.08);
   --fabric-orderbook-depth-bid: rgba(7, 148, 85, 0.1);
+
+  /* Component — DepthChart (light) */
+  --fabric-depthchart-bg: #FAFAFA;
+  --fabric-depthchart-ask-fill: rgba(115, 0, 0, 0.25);
+  --fabric-depthchart-ask-stroke: #730000;
+  --fabric-depthchart-bid-fill: var(--fabric-brand-200);
+  --fabric-depthchart-bid-stroke: var(--fabric-brand-700);
+  --fabric-depthchart-grid: rgba(0, 0, 0, 0.1);
+  --fabric-depthchart-label: var(--fabric-text-secondary);
 }
 
 [data-theme="dark"] {
@@ -400,6 +409,15 @@
   --fabric-orderbook-bid: #47CD89;
   --fabric-orderbook-depth-ask: rgba(246, 61, 104, 0.16);
   --fabric-orderbook-depth-bid: rgba(71, 205, 137, 0.16);
+
+  /* Component — DepthChart (dark) */
+  --fabric-depthchart-bg: #141414;
+  --fabric-depthchart-ask-fill: #4A0000;
+  --fabric-depthchart-ask-stroke: var(--fabric-error-500);
+  --fabric-depthchart-bid-fill: var(--fabric-brand-900);
+  --fabric-depthchart-bid-stroke: var(--fabric-brand-500);
+  --fabric-depthchart-grid: rgba(255, 255, 255, 0.12);
+  --fabric-depthchart-label: #D6D6D6;
 }
 
 /* Surface — applied to the Storybook canvas so themes are visible */
