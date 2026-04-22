@@ -102,7 +102,6 @@
   bottom: 0;
   pointer-events: none;
   width: var(--depth, 0%);
-  transition: width 200ms ease;
 }
 .depthAsk { background: var(--fabric-orderbook-depth-ask); }
 .depthBid { background: var(--fabric-orderbook-depth-bid); }
