@@ -1,0 +1,105 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { ComponentMeta } from "./ComponentMeta";
+
+<Meta title="Foundations/Docs template" />
+
+# Docs template
+
+Every component in this Storybook ships with a standard docs header. That's the rectangle at the top of [Button](../?path=/docs/components-button--docs) and [OrderBook](../?path=/docs/exchange-components-orderbook--docs) — status, Figma link, design notes, a11y, limitations, and a changelog.
+
+This page is how you add it to a new component.
+
+## Live preview of the block
+
+<ComponentMeta
+  status="beta"
+  version="1.2.0"
+  owner="Design System Team"
+  lastUpdated="2026-04-22"
+  figma={{
+    url: "https://www.figma.com/design/example",
+    label: "Example component — variant axes",
+    nodeId: "123:456",
+  }}
+  designNotes={[
+    "Short sentence explaining a non-obvious design decision.",
+    "Another one, focused on tokens and how they resolve.",
+  ]}
+  a11yNotes={[
+    "What assistive-tech expectations this component meets.",
+    "Focus ring behavior, keyboard support.",
+  ]}
+  limitations={[
+    "Known feature gaps — state the thing that isn't done, not the future.",
+  ]}
+  changelog={[
+    { date: "2026-04-22", version: "1.2.0", changes: ["Added XYZ.", "Fixed ABC."] },
+    { date: "2026-04-10", version: "1.1.0", changes: ["Initial release."] },
+  ]}
+/>
+
+## How to use it
+
+Two files per component. The `.stories.tsx` is unchanged — it defines stories. The new `.mdx` file next to it becomes the Docs tab.
+
+```tsx
+// Button.stories.tsx — unchanged
+export default {
+  title: "Components/Button",
+  component: Button,
+  tags: ["autodocs"],
+  // ...
+};
+```
+
+```mdx
+// Button.mdx — replaces the auto-generated Docs page
+import { Meta, Title, Primary, Controls, Stories } from "@storybook/addon-docs/blocks";
+import { ComponentMeta } from "../../docs/ComponentMeta";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+<Title />
+
+One sentence describing what the component is for.
+
+<ComponentMeta
+  status="alpha"
+  version="0.1.0"
+  owner="Your name"
+  lastUpdated="2026-04-22"
+  figma={{ url: "...", label: "...", nodeId: "..." }}
+  designNotes={[...]}
+  a11yNotes={[...]}
+  limitations={[...]}
+  changelog={[
+    { date: "2026-04-22", version: "0.1.0", changes: ["Initial."] },
+  ]}
+/>
+
+<Primary />
+<Controls />
+<Stories />
+```
+
+## Props reference
+
+| Prop | Type | Notes |
+| ---- | ---- | ----- |
+| `status` | `"alpha" \| "beta" \| "stable" \| "deprecated"` | Colored badge — signals maturity to consumers. |
+| `version` | `string` | Semver — bump on every meaningful change. |
+| `owner` | `string` | Single person or team responsible. |
+| `lastUpdated` | `string` (YYYY-MM-DD) | Usually matches the newest changelog entry. |
+| `figma` | `FigmaRef \| FigmaRef[]` | URL + optional `label` + optional `nodeId`. Array when a component maps to multiple Figma frames. |
+| `designNotes` | `ReactNode[]` | Non-obvious design decisions. Why, not what. |
+| `a11yNotes` | `ReactNode[]` | Concrete a11y expectations this component meets. |
+| `limitations` | `ReactNode[]` | Things that aren't implemented yet. State the gap plainly. |
+| `changelog` | `ChangelogEntry[]` | **Newest first.** Date + optional version + bullet list of changes. |
+
+## When to bump each thing
+
+- **Status**: Promote `alpha → beta → stable` as the component hardens. Demote to `deprecated` when it has a replacement.
+- **Version**: Patch for bug fixes and visual tweaks, minor for new props/variants, major for breaking API changes.
+- **Changelog**: Every PR that touches the component. If the change isn't worth documenting, consider whether it needs to ship.
+- **Limitations**: Update when you add the limited feature — delete the entry, don't cross it out.

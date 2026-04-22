@@ -28,7 +28,6 @@ const bids: OrderLevel[] = [
 const meta: Meta<typeof OrderBook> = {
   title: "Exchange components/OrderBook",
   component: OrderBook,
-  tags: ["autodocs"],
   parameters: { layout: "centered" },
 };
 export default meta;
