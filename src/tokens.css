@@ -492,6 +492,15 @@ html, body {
   background-color: var(--fabric-bg-secondary) !important;
   color: var(--fabric-text-secondary) !important;
 }
+/* Cascade over descendant spans in table cells — Storybook's ArgsTable
+   paints type annotations (string/union/boolean) in a dark slate color
+   that's unreadable on dark bg. Force them to a readable tertiary. */
+[data-theme="dark"] .sbdocs-content td *,
+[data-theme="dark"] [class*="docblock-argstable"] td *,
+[data-theme="dark"] [class*="docblock-argstable"] td span,
+[data-theme="dark"] [class*="docblock-argstable"] td code {
+  color: var(--fabric-text-secondary) !important;
+}
 /* Links */
 [data-theme="dark"] .sbdocs-content a {
   color: var(--fabric-text-brand-primary) !important;
