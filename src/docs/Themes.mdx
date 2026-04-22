@@ -1,0 +1,68 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Button } from "../components/Button/Button";
+import { Badge } from "../components/Badge/Badge";
+import { InputField } from "../components/InputField/InputField";
+import { Toggle } from "../components/Toggle/Toggle";
+
+<Meta title="Foundations/Themes" />
+
+# Themes
+
+Fabric combines three independent mode axes. Each axis is controlled by a `data-*` attribute on the document root and cascades to every component via CSS custom properties — no JS runtime theming.
+
+| Axis    | Values                        | Attribute      |
+| ------- | ----------------------------- | -------------- |
+| Brand   | Adaptive / Aeron / Demo       | `data-brand`   |
+| Color   | Light / Dark                  | `data-theme`   |
+| Density | Compact / Default / Spacious  | `data-density` |
+
+That's 3 × 2 × 3 = **18 theme combinations** from a single component implementation. Use the toolbar above to try them.
+
+## How it works
+
+At `:root` the default tokens apply. Each `[data-*]` selector overrides only the subset it owns:
+
+```css
+:root, [data-brand="adaptive"] { --fabric-brand-600: #676AC6; ... }
+[data-brand="aeron"]            { --fabric-brand-600: #1BA768; ... }
+
+:root, [data-theme="light"]    { --fabric-bg-primary: #FFFFFF; --fabric-text-primary: #141414; ... }
+[data-theme="dark"]             { --fabric-bg-primary: #0A0A0A; --fabric-text-primary: #F7F7F7; ... }
+
+:root, [data-density="default"] { --fabric-spacing-md: 8px; --fabric-text-sm: 11px; ... }
+[data-density="compact"]        { --fabric-spacing-md: 6px; --fabric-text-sm: 10px; ... }
+```
+
+Setting attributes on `<html>` switches everything at once. The components themselves never mention brands, modes, or densities — they only reference semantic tokens.
+
+## Live preview
+
+Components render against the current theme. Change the toolbar to see them react.
+
+<div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center", padding: 24, border: "1px solid var(--fabric-border-secondary)", borderRadius: 12, background: "var(--fabric-bg-primary)" }}>
+  <Button>Primary action</Button>
+  <Badge color="brand" dot>Live</Badge>
+  <Badge color="success" dot>Up 2.4%</Badge>
+  <Badge color="error" dot>Down 0.8%</Badge>
+  <div style={{ width: 220 }}>
+    <InputField label="Email" placeholder="you@example.com" />
+  </div>
+  <Toggle defaultChecked label="Notifications" />
+</div>
+
+## Brand palettes — current brand's ramp
+
+<div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 4, marginTop: 16 }}>
+  {[25, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((stop) => (
+    <div key={stop} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+      <div style={{ width: "100%", height: 48, background: `var(--fabric-brand-${stop})`, borderRadius: 6, border: "1px solid var(--fabric-border-secondary)" }} />
+      <span style={{ fontSize: 10, color: "var(--fabric-text-tertiary)" }}>{stop}</span>
+    </div>
+  ))}
+</div>
+
+## When this model breaks
+
+- **Custom fintech components** (trading tables, currency tiles, order tickets) often need brand-specific data density decisions that don't fit the `data-density` axis — expect per-brand overrides.
+- **Per-component theme overrides** (one button on one screen is a different color) need explicit escape hatches, not theme changes.
+- **Motion and behavior** aren't currently tokenised here — if the design system needs to govern transitions, that's a new axis.

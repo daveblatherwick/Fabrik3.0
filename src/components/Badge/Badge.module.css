@@ -1,0 +1,38 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fabric-spacing-xs);
+  font-family: var(--fabric-font-family-body);
+  font-weight: var(--fabric-font-weight-medium);
+  border: 1px solid transparent;
+  border-radius: var(--fabric-radius-full);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.size-sm { padding: 2px var(--fabric-spacing-sm); font-size: var(--fabric-text-xs); }
+.size-md { padding: 2px var(--fabric-spacing-md); font-size: var(--fabric-text-xs); }
+.size-lg { padding: 4px var(--fabric-spacing-md); font-size: var(--fabric-text-sm); }
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+/* Color variants */
+.color-gray   { background-color: var(--fabric-bg-tertiary);      color: var(--fabric-text-secondary); border-color: var(--fabric-border-secondary); }
+.color-brand  { background-color: var(--fabric-brand-50);         color: var(--fabric-brand-700);      border-color: var(--fabric-brand-200); }
+.color-error  { background-color: var(--fabric-error-50);         color: var(--fabric-error-700);      border-color: var(--fabric-error-200); }
+.color-warning{ background-color: var(--fabric-warning-50);       color: var(--fabric-warning-700);    border-color: var(--fabric-warning-200); }
+.color-success{ background-color: var(--fabric-success-50);       color: var(--fabric-success-700);    border-color: var(--fabric-success-200); }
+.color-buy    { background-color: var(--fabric-success-50);       color: var(--fabric-success-700);    border-color: var(--fabric-success-200); }
+.color-sell   { background-color: var(--fabric-error-50);         color: #730000;                       border-color: var(--fabric-error-200); }
+
+[data-theme="dark"] .color-gray   { background-color: rgba(255,255,255,0.08); color: var(--fabric-text-secondary); border-color: var(--fabric-border-secondary); }
+[data-theme="dark"] .color-brand  { background-color: rgba(103,106,198,0.15); color: var(--fabric-brand-300);      border-color: rgba(103,106,198,0.35); }
+[data-theme="dark"] .color-error  { background-color: rgba(246,61,104,0.12);  color: var(--fabric-error-400);      border-color: rgba(246,61,104,0.3); }
+[data-theme="dark"] .color-warning{ background-color: rgba(253,176,34,0.12);  color: var(--fabric-warning-400);    border-color: rgba(253,176,34,0.3); }
+[data-theme="dark"] .color-success{ background-color: rgba(71,205,137,0.12);  color: var(--fabric-success-400);    border-color: rgba(71,205,137,0.3); }

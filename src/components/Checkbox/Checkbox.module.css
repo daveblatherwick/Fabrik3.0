@@ -1,0 +1,97 @@
+.root {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--fabric-spacing-md);
+  font-family: var(--fabric-font-family-body);
+  font-size: var(--fabric-text-sm);
+  line-height: var(--fabric-line-height-sm);
+  color: var(--fabric-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.root.disabled {
+  cursor: not-allowed;
+  color: var(--fabric-text-disabled);
+}
+
+.control {
+  --size: 16px;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  flex-shrink: 0;
+}
+
+.root.size-sm .control { --size: 14px; }
+.root.size-lg .control { --size: 18px; }
+
+.input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: inherit;
+  margin: 0;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--fabric-input-border);
+  background-color: var(--fabric-input-bg);
+  border-radius: var(--fabric-radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 120ms, border-color 120ms;
+}
+
+.input:hover:not(:disabled) ~ .box {
+  border-color: var(--fabric-brand-600);
+  background-color: var(--fabric-brand-25);
+}
+
+.input:checked ~ .box,
+.input:indeterminate ~ .box {
+  background-color: var(--fabric-brand-600);
+  border-color: var(--fabric-brand-600);
+}
+
+.input:focus-visible ~ .box {
+  outline: 2px solid var(--fabric-focus-ring);
+  outline-offset: 2px;
+}
+
+.input:disabled ~ .box {
+  background-color: var(--fabric-bg-disabled-subtle);
+  border-color: var(--fabric-border-disabled);
+}
+
+.input:disabled:checked ~ .box {
+  background-color: var(--fabric-bg-disabled);
+  border-color: var(--fabric-border-disabled);
+}
+
+.check {
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: var(--fabric-base-white);
+}
+
+.input:checked ~ .box .check { display: block; }
+.input:indeterminate ~ .box .indeterminate { display: block; }
+.indeterminate { display: none; color: var(--fabric-base-white); }
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 0;
+}
+
+.description {
+  font-size: var(--fabric-text-xs);
+  line-height: var(--fabric-line-height-xs);
+  color: var(--fabric-text-tertiary);
+}

@@ -1,0 +1,84 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { TokenTable } from "./DocComponents";
+
+<Meta title="Foundations/Variables" />
+
+# Variables
+
+Every design decision in Fabric resolves to a CSS custom property under the `--fabric-*` prefix. Components consume these variables, so switching theme/brand/density at the root cascades to every rendered component automatically.
+
+## Architecture
+
+Fabric's Figma file defines **9 variable collections** and **941 variables**, organised into three layers:
+
+1. **Primitives** — raw dimensions, hex values, font families. Not used directly by components.
+2. **Semantic tokens** — aliased primitives with meaning (`text-primary`, `bg-brand-solid`, `border-error`). These are what components consume.
+3. **Component tokens** — component-specific aliases (`button-brand-bg`, `input-primary-border`) built on semantic tokens.
+
+The indirection lets brand, color mode, and density cascade independently without the component code knowing about them.
+
+## Collections (Figma source)
+
+<TokenTable
+  rows={[
+    { name: "0. Brand", value: "Adaptive / Aeron / Demo (124 vars)" },
+    { name: "1. Color modes", value: "Light / Dark (326 vars)" },
+    { name: "2. Radius", value: "Default / Compact / Spacious (11 vars)" },
+    { name: "3. Spacing", value: "Default / Compact / Spacious (17 vars)" },
+    { name: "4. Density", value: "Default / Compact / Spacious (9 vars)" },
+    { name: "5. Widths", value: "Default / Compact / Spacious (13 vars)" },
+    { name: "6. Containers", value: "3 vars" },
+    { name: "7. Typography", value: "Default / Compact / Spacious (38 vars)" },
+    { name: "Primitives", value: "400 vars (dimensions, raw colors)" },
+  ]}
+/>
+
+## Radius scale
+
+Resolves by Density mode. Switch the toolbar to see values change.
+
+<TokenTable
+  rows={[
+    { name: "--fabric-radius-none", value: "0" },
+    { name: "--fabric-radius-xxs", value: "var(--fabric-radius-xxs)" },
+    { name: "--fabric-radius-xs", value: "var(--fabric-radius-xs)" },
+    { name: "--fabric-radius-sm", value: "var(--fabric-radius-sm)" },
+    { name: "--fabric-radius-md", value: "var(--fabric-radius-md)" },
+    { name: "--fabric-radius-lg", value: "var(--fabric-radius-lg)" },
+    { name: "--fabric-radius-xl", value: "var(--fabric-radius-xl)" },
+    { name: "--fabric-radius-2xl", value: "var(--fabric-radius-2xl)" },
+    { name: "--fabric-radius-full", value: "9999px" },
+  ]}
+/>
+
+## Spacing scale
+
+<TokenTable
+  rows={[
+    { name: "--fabric-spacing-none", value: "0" },
+    { name: "--fabric-spacing-xxs", value: "var(--fabric-spacing-xxs)" },
+    { name: "--fabric-spacing-xs", value: "var(--fabric-spacing-xs)" },
+    { name: "--fabric-spacing-sm", value: "var(--fabric-spacing-sm)" },
+    { name: "--fabric-spacing-md", value: "var(--fabric-spacing-md)" },
+    { name: "--fabric-spacing-lg", value: "var(--fabric-spacing-lg)" },
+    { name: "--fabric-spacing-xl", value: "var(--fabric-spacing-xl)" },
+    { name: "--fabric-spacing-2xl", value: "var(--fabric-spacing-2xl)" },
+    { name: "--fabric-spacing-3xl", value: "var(--fabric-spacing-3xl)" },
+    { name: "--fabric-spacing-4xl", value: "var(--fabric-spacing-4xl)" },
+  ]}
+/>
+
+## Shadow scale
+
+<TokenTable
+  rows={[
+    { name: "--fabric-shadow-xs", value: "1px blur" },
+    { name: "--fabric-shadow-sm", value: "3px blur" },
+    { name: "--fabric-shadow-md", value: "8px blur" },
+    { name: "--fabric-shadow-lg", value: "16px blur" },
+  ]}
+/>
+
+## Note on sync
+
+This file is hand-exported from Figma variables. A real system requires automation — Style Dictionary, Tokens Studio, or a custom pipeline — to keep these in lockstep with the Figma source.

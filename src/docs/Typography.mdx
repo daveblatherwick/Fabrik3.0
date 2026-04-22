@@ -1,0 +1,44 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { TypeSpecimen, TokenTable } from "./DocComponents";
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+Fabric uses **Work Sans** for both display and body across all brands and densities. Font sizes and line heights shift with density — switch the Density toolbar above to see the scale adjust.
+
+## Text sizes
+
+<TypeSpecimen label="text-2xs" size="var(--fabric-text-2xs)" lineHeight="var(--fabric-line-height-2xs)" sample="Micro text — labels, badges" />
+<TypeSpecimen label="text-xs" size="var(--fabric-text-xs)" lineHeight="var(--fabric-line-height-xs)" sample="Extra-small text — hints and captions" />
+<TypeSpecimen label="text-sm" size="var(--fabric-text-sm)" lineHeight="var(--fabric-line-height-sm)" sample="Small — default body copy" />
+<TypeSpecimen label="text-md" size="var(--fabric-text-md)" lineHeight="var(--fabric-line-height-md)" sample="Medium — emphasised body copy" />
+<TypeSpecimen label="text-lg" size="var(--fabric-text-lg)" lineHeight="var(--fabric-line-height-lg)" sample="Large — short headings" />
+<TypeSpecimen label="text-xl" size="var(--fabric-text-xl)" lineHeight="var(--fabric-line-height-xl)" sample="Extra-large — section headings" />
+
+## Display sizes
+
+<TypeSpecimen label="display-xs" size="var(--fabric-text-display-xs)" lineHeight="28px" weight="Semibold" sample="Display xs — hero subtitle" />
+<TypeSpecimen label="display-sm" size="var(--fabric-text-display-sm)" lineHeight="32px" weight="Semibold" sample="Display sm — section title" />
+<TypeSpecimen label="display-md" size="var(--fabric-text-display-md)" lineHeight="38px" weight="Semibold" sample="Display md" />
+<TypeSpecimen label="display-lg" size="var(--fabric-text-display-lg)" lineHeight="44px" weight="Semibold" sample="Display lg" />
+
+## Font weights
+
+<TokenTable
+  rows={[
+    { name: "font-weight-regular", value: "400" },
+    { name: "font-weight-medium", value: "500" },
+    { name: "font-weight-semibold", value: "600" },
+    { name: "font-weight-bold", value: "700" },
+  ]}
+/>
+
+## Font families
+
+<TokenTable
+  rows={[
+    { name: "font-family-display", value: "Work Sans" },
+    { name: "font-family-body", value: "Work Sans" },
+  ]}
+/>

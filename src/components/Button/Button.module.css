@@ -1,0 +1,59 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--fabric-spacing-sm);
+  font-family: var(--fabric-font-family-body);
+  font-weight: var(--fabric-font-weight-semibold);
+  border-radius: var(--fabric-radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.button:focus-visible {
+  outline: var(--fabric-focus-ring-width) solid var(--fabric-focus-ring);
+  outline-offset: var(--fabric-focus-ring-offset);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  background-color: var(--fabric-button-disabled-bg);
+  color: var(--fabric-button-disabled-fg);
+  border-color: transparent;
+}
+
+/* Sizes */
+.size-xs {
+  font-size: var(--fabric-text-xs);
+  line-height: var(--fabric-line-height-xs);
+  padding: var(--fabric-spacing-xs) var(--fabric-spacing-md);
+  border-radius: var(--fabric-radius-xs);
+}
+
+.size-sm {
+  font-size: var(--fabric-text-sm);
+  line-height: var(--fabric-line-height-sm);
+  padding: var(--fabric-spacing-sm) var(--fabric-spacing-lg);
+  border-radius: var(--fabric-radius-sm);
+}
+
+.size-lg {
+  font-size: var(--fabric-text-md);
+  line-height: var(--fabric-line-height-md);
+  padding: var(--fabric-spacing-md) var(--fabric-spacing-xl);
+  border-radius: var(--fabric-radius-md);
+}
+
+/* Variant × Kind = Filled Brand */
+.filled-brand {
+  background-color: var(--fabric-button-brand-bg);
+  color: var(--fabric-button-brand-fg);
+}
+
+.filled-brand:hover:not(:disabled) {
+  background-color: var(--fabric-button-brand-bg-hover);
+  color: var(--fabric-button-brand-fg-hover);
+}

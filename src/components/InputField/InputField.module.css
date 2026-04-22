@@ -1,0 +1,85 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--fabric-spacing-xs);
+  font-family: var(--fabric-font-family-body);
+  color: var(--fabric-text-primary);
+  width: 100%;
+}
+
+.label {
+  font-size: var(--fabric-text-sm);
+  line-height: var(--fabric-line-height-sm);
+  font-weight: var(--fabric-font-weight-medium);
+  color: var(--fabric-text-secondary);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: var(--fabric-spacing-sm);
+  background-color: var(--fabric-input-bg);
+  border: 1px solid var(--fabric-input-border);
+  border-radius: var(--fabric-radius-sm);
+  padding: var(--fabric-spacing-sm) var(--fabric-spacing-md);
+  transition: border-color 120ms, box-shadow 120ms, background-color 120ms;
+}
+
+.field:hover:not(.disabled) {
+  border-color: var(--fabric-input-border-hover);
+  background-color: var(--fabric-input-bg-hover);
+}
+
+.field.focused {
+  border-color: var(--fabric-focus-ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--fabric-focus-ring) 24%, transparent);
+}
+
+.field.invalid {
+  border-color: var(--fabric-border-error);
+}
+.field.invalid.focused {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--fabric-focus-ring-error) 24%, transparent);
+}
+
+.field.disabled {
+  background-color: var(--fabric-bg-disabled-subtle);
+  cursor: not-allowed;
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--fabric-input-fg);
+  font-size: var(--fabric-text-sm);
+  line-height: var(--fabric-line-height-sm);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--fabric-text-placeholder);
+}
+
+.input:disabled {
+  color: var(--fabric-text-disabled);
+  cursor: not-allowed;
+}
+
+.adornment {
+  color: var(--fabric-fg-quaternary);
+  display: inline-flex;
+  align-items: center;
+}
+
+.hint {
+  font-size: var(--fabric-text-xs);
+  line-height: var(--fabric-line-height-xs);
+  color: var(--fabric-text-tertiary);
+}
+
+.hint.error {
+  color: var(--fabric-text-error-primary);
+}

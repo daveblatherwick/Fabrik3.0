@@ -1,0 +1,389 @@
+/* Fabric design tokens — exported from Figma (Adaptive - Design System)
+   Source of truth: https://www.figma.com/design/3AZXedsXs7QlKc5dJmzQfl
+   Mode axes: Brand (Adaptive/Aeron/Demo) × Color (Light/Dark) × Density (Default/Compact/Spacious) */
+
+:root {
+  /* Base */
+  --fabric-base-white: #FFFFFF;
+  --fabric-base-black: #000000;
+
+  /* Typography */
+  --fabric-font-family-display: "Work Sans", system-ui, sans-serif;
+  --fabric-font-family-body: "Work Sans", system-ui, sans-serif;
+  --fabric-font-weight-regular: 400;
+  --fabric-font-weight-medium: 500;
+  --fabric-font-weight-semibold: 600;
+  --fabric-font-weight-bold: 700;
+}
+
+/* ───────── Density (controls radius, spacing, typography) ───────── */
+
+:root, [data-density="default"] {
+  --fabric-radius-none: 0;
+  --fabric-radius-xxs: 2px;
+  --fabric-radius-xs: 4px;
+  --fabric-radius-sm: 6px;
+  --fabric-radius-md: 8px;
+  --fabric-radius-lg: 10px;
+  --fabric-radius-xl: 12px;
+  --fabric-radius-2xl: 16px;
+  --fabric-radius-3xl: 20px;
+  --fabric-radius-4xl: 24px;
+  --fabric-radius-full: 9999px;
+
+  --fabric-spacing-none: 0;
+  --fabric-spacing-xxs: 2px;
+  --fabric-spacing-xs: 4px;
+  --fabric-spacing-sm: 6px;
+  --fabric-spacing-md: 8px;
+  --fabric-spacing-lg: 12px;
+  --fabric-spacing-xl: 16px;
+  --fabric-spacing-2xl: 20px;
+  --fabric-spacing-3xl: 24px;
+  --fabric-spacing-4xl: 32px;
+  --fabric-spacing-5xl: 40px;
+  --fabric-spacing-6xl: 48px;
+
+  --fabric-text-2xs: 9px;
+  --fabric-text-xs: 10px;
+  --fabric-text-sm: 11px;
+  --fabric-text-md: 12px;
+  --fabric-text-lg: 14px;
+  --fabric-text-xl: 16px;
+  --fabric-text-display-xs: 20px;
+  --fabric-text-display-sm: 24px;
+  --fabric-text-display-md: 30px;
+  --fabric-text-display-lg: 36px;
+
+  --fabric-line-height-2xs: 14px;
+  --fabric-line-height-xs: 18px;
+  --fabric-line-height-sm: 20px;
+  --fabric-line-height-md: 24px;
+  --fabric-line-height-lg: 28px;
+  --fabric-line-height-xl: 32px;
+}
+
+[data-density="compact"] {
+  --fabric-radius-xxs: 1px;
+  --fabric-radius-xs: 2px;
+  --fabric-radius-sm: 4px;
+  --fabric-radius-md: 6px;
+  --fabric-radius-lg: 8px;
+  --fabric-radius-xl: 10px;
+  --fabric-radius-2xl: 12px;
+
+  --fabric-spacing-xxs: 2px;
+  --fabric-spacing-xs: 2px;
+  --fabric-spacing-sm: 4px;
+  --fabric-spacing-md: 6px;
+  --fabric-spacing-lg: 8px;
+  --fabric-spacing-xl: 12px;
+  --fabric-spacing-2xl: 16px;
+  --fabric-spacing-3xl: 20px;
+  --fabric-spacing-4xl: 24px;
+
+  --fabric-text-xs: 9px;
+  --fabric-text-sm: 10px;
+  --fabric-text-md: 11px;
+  --fabric-text-lg: 12px;
+  --fabric-text-xl: 14px;
+}
+
+[data-density="spacious"] {
+  --fabric-radius-xxs: 4px;
+  --fabric-radius-xs: 6px;
+  --fabric-radius-sm: 8px;
+  --fabric-radius-md: 10px;
+  --fabric-radius-lg: 12px;
+  --fabric-radius-xl: 16px;
+  --fabric-radius-2xl: 20px;
+
+  --fabric-spacing-xxs: 4px;
+  --fabric-spacing-xs: 6px;
+  --fabric-spacing-sm: 8px;
+  --fabric-spacing-md: 12px;
+  --fabric-spacing-lg: 16px;
+  --fabric-spacing-xl: 20px;
+  --fabric-spacing-2xl: 24px;
+
+  --fabric-text-xs: 11px;
+  --fabric-text-sm: 12px;
+  --fabric-text-md: 14px;
+  --fabric-text-lg: 16px;
+  --fabric-text-xl: 18px;
+}
+
+/* ───────── Brand palettes ───────── */
+
+:root, [data-brand="adaptive"] {
+  --fabric-brand-25: #F2F3FE;
+  --fabric-brand-50: #E6E6FE;
+  --fabric-brand-100: #D9DAFD;
+  --fabric-brand-200: #C0C2FC;
+  --fabric-brand-300: #A7A9FA;
+  --fabric-brand-400: #8E90F9;
+  --fabric-brand-500: #8184F8;
+  --fabric-brand-600: #676AC6;
+  --fabric-brand-700: #4D4F95;
+  --fabric-brand-800: #41427C;
+  --fabric-brand-900: #27284A;
+  --fabric-brand-950: #0D0D19;
+}
+
+[data-brand="aeron"] {
+  --fabric-brand-25: #F2FDF8;
+  --fabric-brand-50: #E9FBF3;
+  --fabric-brand-100: #D3F8E7;
+  --fabric-brand-200: #A3F0CD;
+  --fabric-brand-300: #77E9B6;
+  --fabric-brand-400: #47E19C;
+  --fabric-brand-500: #22D081;
+  --fabric-brand-600: #1BA768;
+  --fabric-brand-700: #157F4F;
+  --fabric-brand-800: #0E5334;
+  --fabric-brand-900: #072C1B;
+  --fabric-brand-950: #04160E;
+}
+
+[data-brand="demo"] {
+  --fabric-brand-25: #F5F8FF;
+  --fabric-brand-50: #EFF4FF;
+  --fabric-brand-100: #D1E0FF;
+  --fabric-brand-200: #B2CCFF;
+  --fabric-brand-300: #84ADFF;
+  --fabric-brand-400: #528BFF;
+  --fabric-brand-500: #2970FF;
+  --fabric-brand-600: #155EEF;
+  --fabric-brand-700: #004EEB;
+  --fabric-brand-800: #0040C1;
+  --fabric-brand-900: #00359E;
+  --fabric-brand-950: #00226F;
+}
+
+/* Semantic scales (brand-agnostic) */
+:root {
+  --fabric-error-25: #FFF5F6;
+  --fabric-error-50: #FFF1F3;
+  --fabric-error-100: #FFE4E8;
+  --fabric-error-200: #FECDD6;
+  --fabric-error-300: #FEA3B4;
+  --fabric-error-400: #FD6F8E;
+  --fabric-error-500: #F63D68;
+  --fabric-error-600: #E31B54;
+  --fabric-error-700: #C01048;
+  --fabric-error-800: #A11043;
+  --fabric-error-900: #89123E;
+  --fabric-error-950: #510B24;
+
+  --fabric-warning-25: #FFFCF5;
+  --fabric-warning-50: #FFFAEB;
+  --fabric-warning-100: #FEF0C7;
+  --fabric-warning-200: #FEDF89;
+  --fabric-warning-300: #FEC84B;
+  --fabric-warning-400: #FDB022;
+  --fabric-warning-500: #F79009;
+  --fabric-warning-600: #DC6803;
+  --fabric-warning-700: #B54708;
+  --fabric-warning-800: #93370D;
+  --fabric-warning-900: #7A2E0E;
+  --fabric-warning-950: #4E1D09;
+
+  --fabric-success-25: #F6FEF9;
+  --fabric-success-50: #ECFDF3;
+  --fabric-success-100: #DCFAE6;
+  --fabric-success-200: #ABEFC6;
+  --fabric-success-300: #75E0A7;
+  --fabric-success-400: #47CD89;
+  --fabric-success-500: #17B26A;
+  --fabric-success-600: #079455;
+  --fabric-success-700: #067647;
+  --fabric-success-800: #085D3A;
+  --fabric-success-900: #074D31;
+  --fabric-success-950: #053321;
+
+  /* Fintech data scales */
+  --fabric-data-positive-500: #17B26A;
+  --fabric-data-positive-600: #079455;
+  --fabric-data-positive-700: #067647;
+  --fabric-data-negative-500: #880000;
+  --fabric-data-negative-600: #730000;
+  --fabric-data-negative-700: #5F0000;
+  --fabric-data-neutral-300: #50585F;
+  --fabric-data-neutral-400: #3E454C;
+  --fabric-data-neutral-500: #353B41;
+
+  --fabric-buy: #17B26A;
+  --fabric-buy-hover: #079455;
+  --fabric-sell: #880000;
+  --fabric-sell-hover: #730000;
+}
+
+/* ───────── Color mode (semantic tokens) ───────── */
+
+:root, [data-theme="light"] {
+  /* Text */
+  --fabric-text-primary: #141414;
+  --fabric-text-secondary: #424242;
+  --fabric-text-tertiary: #525252;
+  --fabric-text-quaternary: #737373;
+  --fabric-text-disabled: #737373;
+  --fabric-text-placeholder: #737373;
+  --fabric-text-white: #FFFFFF;
+  --fabric-text-black: #000000;
+  --fabric-text-brand-primary: var(--fabric-brand-600);
+  --fabric-text-brand-secondary: var(--fabric-brand-700);
+  --fabric-text-error-primary: #730000;
+  --fabric-text-warning-primary: var(--fabric-warning-600);
+  --fabric-text-success-primary: var(--fabric-success-600);
+  --fabric-text-buy-primary: var(--fabric-buy);
+  --fabric-text-sell-primary: var(--fabric-sell);
+  --fabric-text-primary-on-brand: #FFFFFF;
+
+  /* Background */
+  --fabric-bg-primary: #FFFFFF;
+  --fabric-bg-secondary: #FAFAFA;
+  --fabric-bg-tertiary: #F5F5F5;
+  --fabric-bg-quaternary: #EDEDED;
+  --fabric-bg-primary-hover: #FAFAFA;
+  --fabric-bg-secondary-hover: #F5F5F5;
+  --fabric-bg-active: #F0F0F0;
+  --fabric-bg-disabled: #F5F5F5;
+  --fabric-bg-disabled-subtle: #FAFAFA;
+  --fabric-bg-brand-primary: var(--fabric-brand-50);
+  --fabric-bg-brand-solid: var(--fabric-brand-600);
+  --fabric-bg-brand-solid-hover: var(--fabric-brand-700);
+  --fabric-bg-error-primary: var(--fabric-error-50);
+  --fabric-bg-warning-primary: var(--fabric-warning-50);
+  --fabric-bg-success-primary: var(--fabric-success-50);
+  --fabric-bg-buy-primary: var(--fabric-buy);
+  --fabric-bg-buy-primary-hover: var(--fabric-buy-hover);
+  --fabric-bg-sell-primary: var(--fabric-sell);
+  --fabric-bg-sell-primary-hover: var(--fabric-sell-hover);
+  --fabric-bg-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Border */
+  --fabric-border-primary: #D6D6D6;
+  --fabric-border-secondary: #E5E5E5;
+  --fabric-border-tertiary: #F5F5F5;
+  --fabric-border-brand: var(--fabric-brand-600);
+  --fabric-border-error: var(--fabric-error-600);
+  --fabric-border-warning: var(--fabric-warning-600);
+  --fabric-border-success: var(--fabric-success-600);
+  --fabric-border-disabled: #D6D6D6;
+  --fabric-border-hover: #A3A3A3;
+
+  /* Foreground (icons, etc) */
+  --fabric-fg-primary: #141414;
+  --fabric-fg-secondary: #424242;
+  --fabric-fg-tertiary: #525252;
+  --fabric-fg-quaternary: #737373;
+  --fabric-fg-disabled: #A3A3A3;
+  --fabric-fg-white: #FFFFFF;
+  --fabric-fg-brand-primary: var(--fabric-brand-600);
+  --fabric-fg-error-primary: var(--fabric-error-600);
+  --fabric-fg-warning-primary: var(--fabric-warning-600);
+  --fabric-fg-success-primary: var(--fabric-success-600);
+
+  /* Component — Button */
+  --fabric-button-brand-bg: var(--fabric-brand-600);
+  --fabric-button-brand-bg-hover: var(--fabric-brand-700);
+  --fabric-button-brand-fg: #FFFFFF;
+  --fabric-button-brand-fg-hover: #FFFFFF;
+  --fabric-button-secondary-bg: #FFFFFF;
+  --fabric-button-secondary-bg-hover: #FAFAFA;
+  --fabric-button-secondary-fg: #424242;
+  --fabric-button-secondary-fg-hover: #141414;
+  --fabric-button-secondary-border: #D6D6D6;
+  --fabric-button-secondary-border-hover: #A3A3A3;
+  --fabric-button-tertiary-fg: var(--fabric-brand-600);
+  --fabric-button-tertiary-fg-hover: var(--fabric-brand-700);
+  --fabric-button-tertiary-bg-hover: var(--fabric-brand-50);
+
+  /* Component — Input */
+  --fabric-input-bg: #FFFFFF;
+  --fabric-input-bg-hover: #FAFAFA;
+  --fabric-input-fg: #141414;
+  --fabric-input-fg-subtle: #737373;
+  --fabric-input-border: #D6D6D6;
+  --fabric-input-border-hover: #A3A3A3;
+
+  /* Focus */
+  --fabric-focus-ring: var(--fabric-brand-500);
+  --fabric-focus-ring-error: var(--fabric-error-500);
+  --fabric-focus-ring-width: 2px;
+  --fabric-focus-ring-offset: 2px;
+
+  /* Shadows */
+  --fabric-shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --fabric-shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+  --fabric-shadow-md: 0 4px 8px -2px rgba(16, 24, 40, 0.1), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
+  --fabric-shadow-lg: 0 12px 16px -4px rgba(16, 24, 40, 0.08), 0 4px 6px -2px rgba(16, 24, 40, 0.03);
+}
+
+[data-theme="dark"] {
+  --fabric-text-primary: #F7F7F7;
+  --fabric-text-secondary: #D6D6D6;
+  --fabric-text-tertiary: #A3A3A3;
+  --fabric-text-quaternary: #737373;
+  --fabric-text-disabled: #A3A3A3;
+  --fabric-text-placeholder: #A3A3A3;
+  --fabric-text-brand-primary: var(--fabric-brand-400);
+  --fabric-text-brand-secondary: #D6D6D6;
+  --fabric-text-error-primary: var(--fabric-error-500);
+  --fabric-text-warning-primary: var(--fabric-warning-400);
+  --fabric-text-success-primary: var(--fabric-success-400);
+
+  --fabric-bg-primary: #0A0A0A;
+  --fabric-bg-secondary: #141414;
+  --fabric-bg-tertiary: #1F1F1F;
+  --fabric-bg-quaternary: #292929;
+  --fabric-bg-primary-hover: #141414;
+  --fabric-bg-secondary-hover: #1F1F1F;
+  --fabric-bg-active: #292929;
+  --fabric-bg-disabled: #292929;
+  --fabric-bg-disabled-subtle: #1F1F1F;
+  --fabric-bg-brand-primary: rgba(103, 106, 198, 0.15);
+  --fabric-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  --fabric-border-primary: #424242;
+  --fabric-border-secondary: #292929;
+  --fabric-border-tertiary: #1F1F1F;
+  --fabric-border-disabled: #424242;
+  --fabric-border-hover: #737373;
+
+  --fabric-fg-primary: #F7F7F7;
+  --fabric-fg-secondary: #D6D6D6;
+  --fabric-fg-tertiary: #A3A3A3;
+  --fabric-fg-quaternary: #737373;
+  --fabric-fg-disabled: #525252;
+
+  --fabric-button-secondary-bg: #1F1F1F;
+  --fabric-button-secondary-bg-hover: #292929;
+  --fabric-button-secondary-fg: #D6D6D6;
+  --fabric-button-secondary-fg-hover: #F7F7F7;
+  --fabric-button-secondary-border: #424242;
+  --fabric-button-secondary-border-hover: #737373;
+  --fabric-button-tertiary-fg: var(--fabric-brand-400);
+  --fabric-button-tertiary-fg-hover: var(--fabric-brand-300);
+  --fabric-button-tertiary-bg-hover: rgba(103, 106, 198, 0.15);
+
+  --fabric-input-bg: #0A0A0A;
+  --fabric-input-bg-hover: #141414;
+  --fabric-input-fg: #F7F7F7;
+  --fabric-input-fg-subtle: #A3A3A3;
+  --fabric-input-border: #424242;
+  --fabric-input-border-hover: #737373;
+
+  --fabric-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --fabric-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.25);
+  --fabric-shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+  --fabric-shadow-lg: 0 12px 16px -4px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+}
+
+/* Surface — applied to the Storybook canvas so themes are visible */
+html, body {
+  background-color: var(--fabric-bg-primary);
+  color: var(--fabric-text-primary);
+  font-family: var(--fabric-font-family-body);
+  margin: 0;
+}

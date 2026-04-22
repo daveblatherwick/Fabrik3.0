@@ -1,0 +1,80 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fabric-spacing-md);
+  font-family: var(--fabric-font-family-body);
+  font-size: var(--fabric-text-sm);
+  color: var(--fabric-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.root.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.track {
+  --track-width: 36px;
+  --track-height: 20px;
+  --thumb-size: 16px;
+  position: relative;
+  width: var(--track-width);
+  height: var(--track-height);
+  background-color: var(--fabric-bg-quaternary);
+  border-radius: var(--fabric-radius-full);
+  transition: background-color 140ms ease;
+  flex-shrink: 0;
+}
+
+.root.size-sm .track {
+  --track-width: 28px;
+  --track-height: 16px;
+  --thumb-size: 12px;
+}
+
+.root.size-lg .track {
+  --track-width: 44px;
+  --track-height: 24px;
+  --thumb-size: 20px;
+}
+
+.input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: inherit;
+  margin: 0;
+}
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: left 140ms ease, background-color 140ms ease;
+  box-shadow: var(--fabric-shadow-xs);
+}
+
+.input:checked ~ .track {
+  background-color: var(--fabric-brand-600);
+}
+
+.input:checked ~ .track .thumb {
+  left: calc(100% - var(--thumb-size) - 2px);
+}
+
+.input:focus-visible ~ .track {
+  outline: 2px solid var(--fabric-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Layered markup variant — input sits before track for :checked ~ selector */
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}

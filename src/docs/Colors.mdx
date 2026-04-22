@@ -1,0 +1,139 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Scale, SemanticRow } from "./DocComponents";
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Fabric's color system is multi-brand and multi-mode. Brand palettes drive the brand scale tokens; semantic tokens resolve to different values per color mode (Light / Dark). Use the toolbar above to switch Brand and Theme and see everything below update.
+
+## Brand Primary
+
+The brand scale varies by brand (Adaptive / Aeron / Demo). Switch brands in the toolbar.
+
+<Scale
+  name="Brand"
+  colors={{
+    25: "var(--fabric-brand-25)",
+    50: "var(--fabric-brand-50)",
+    100: "var(--fabric-brand-100)",
+    200: "var(--fabric-brand-200)",
+    300: "var(--fabric-brand-300)",
+    400: "var(--fabric-brand-400)",
+    500: "var(--fabric-brand-500)",
+    600: "var(--fabric-brand-600)",
+    700: "var(--fabric-brand-700)",
+    800: "var(--fabric-brand-800)",
+    900: "var(--fabric-brand-900)",
+    950: "var(--fabric-brand-950)",
+  }}
+/>
+
+## Error
+
+<Scale
+  name="Error"
+  colors={{
+    25: "var(--fabric-error-25)",
+    50: "var(--fabric-error-50)",
+    100: "var(--fabric-error-100)",
+    200: "var(--fabric-error-200)",
+    300: "var(--fabric-error-300)",
+    400: "var(--fabric-error-400)",
+    500: "var(--fabric-error-500)",
+    600: "var(--fabric-error-600)",
+    700: "var(--fabric-error-700)",
+    800: "var(--fabric-error-800)",
+    900: "var(--fabric-error-900)",
+    950: "var(--fabric-error-950)",
+  }}
+/>
+
+## Warning
+
+<Scale
+  name="Warning"
+  colors={{
+    25: "var(--fabric-warning-25)",
+    50: "var(--fabric-warning-50)",
+    100: "var(--fabric-warning-100)",
+    200: "var(--fabric-warning-200)",
+    300: "var(--fabric-warning-300)",
+    400: "var(--fabric-warning-400)",
+    500: "var(--fabric-warning-500)",
+    600: "var(--fabric-warning-600)",
+    700: "var(--fabric-warning-700)",
+    800: "var(--fabric-warning-800)",
+    900: "var(--fabric-warning-900)",
+    950: "var(--fabric-warning-950)",
+  }}
+/>
+
+## Success
+
+<Scale
+  name="Success"
+  colors={{
+    25: "var(--fabric-success-25)",
+    50: "var(--fabric-success-50)",
+    100: "var(--fabric-success-100)",
+    200: "var(--fabric-success-200)",
+    300: "var(--fabric-success-300)",
+    400: "var(--fabric-success-400)",
+    500: "var(--fabric-success-500)",
+    600: "var(--fabric-success-600)",
+    700: "var(--fabric-success-700)",
+    800: "var(--fabric-success-800)",
+    900: "var(--fabric-success-900)",
+    950: "var(--fabric-success-950)",
+  }}
+/>
+
+## Fintech Data
+
+Buy/sell colors are distinct from Success/Error — they're desaturated for scanning density in trading UI.
+
+<Scale
+  name="Data"
+  colors={{
+    "positive-500": "var(--fabric-data-positive-500)",
+    "positive-600": "var(--fabric-data-positive-600)",
+    "positive-700": "var(--fabric-data-positive-700)",
+    "negative-500": "var(--fabric-data-negative-500)",
+    "negative-600": "var(--fabric-data-negative-600)",
+    "negative-700": "var(--fabric-data-negative-700)",
+    "neutral-500": "var(--fabric-data-neutral-500)",
+    buy: "var(--fabric-buy)",
+    sell: "var(--fabric-sell)",
+  }}
+/>
+
+## Semantic tokens — Text
+
+Switch the Theme toolbar to see these resolve differently.
+
+<SemanticRow name="text-primary" cssVar="--fabric-text-primary" description="Primary text" />
+<SemanticRow name="text-secondary" cssVar="--fabric-text-secondary" description="Secondary labels" />
+<SemanticRow name="text-tertiary" cssVar="--fabric-text-tertiary" description="Muted supporting text" />
+<SemanticRow name="text-disabled" cssVar="--fabric-text-disabled" description="Disabled" />
+<SemanticRow name="text-brand-primary" cssVar="--fabric-text-brand-primary" description="Brand-colored text" />
+<SemanticRow name="text-error-primary" cssVar="--fabric-text-error-primary" description="Error text / negative data" />
+<SemanticRow name="text-success-primary" cssVar="--fabric-text-success-primary" description="Success / positive" />
+<SemanticRow name="text-buy-primary" cssVar="--fabric-text-buy-primary" description="Fintech: buy side" />
+<SemanticRow name="text-sell-primary" cssVar="--fabric-text-sell-primary" description="Fintech: sell side" />
+
+## Semantic tokens — Background
+
+<SemanticRow name="bg-primary" cssVar="--fabric-bg-primary" description="Surface base" />
+<SemanticRow name="bg-secondary" cssVar="--fabric-bg-secondary" description="Raised surface" />
+<SemanticRow name="bg-tertiary" cssVar="--fabric-bg-tertiary" description="Sunken / subtle fills" />
+<SemanticRow name="bg-brand-solid" cssVar="--fabric-bg-brand-solid" description="Brand-colored button fill" />
+<SemanticRow name="bg-disabled" cssVar="--fabric-bg-disabled" />
+
+## Semantic tokens — Border
+
+<SemanticRow name="border-primary" cssVar="--fabric-border-primary" />
+<SemanticRow name="border-secondary" cssVar="--fabric-border-secondary" />
+<SemanticRow name="border-brand" cssVar="--fabric-border-brand" />
+<SemanticRow name="border-error" cssVar="--fabric-border-error" />
+<SemanticRow name="border-success" cssVar="--fabric-border-success" />
