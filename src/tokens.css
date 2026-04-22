@@ -444,19 +444,68 @@ html, body {
   background-color: var(--fabric-bg-secondary) !important;
   color: var(--fabric-text-secondary) !important;
 }
-/* Docs typography — make sure headings/code blocks render on the dark bg */
+/* Docs typography & structure — force everything onto the dark bg. */
+[data-theme="dark"] .sbdocs,
+[data-theme="dark"] .sbdocs-content,
+[data-theme="dark"] [class*="sbdocs"]:not(.sbdocs-preview):not(.sb-previewBlock) {
+  color: var(--fabric-text-primary);
+}
 [data-theme="dark"] .sbdocs-content h1,
 [data-theme="dark"] .sbdocs-content h2,
 [data-theme="dark"] .sbdocs-content h3,
 [data-theme="dark"] .sbdocs-content h4,
+[data-theme="dark"] .sbdocs-content h5,
+[data-theme="dark"] .sbdocs-content h6,
+[data-theme="dark"] .sbdocs-title,
+[data-theme="dark"] [class*="sbdocs-h"],
 [data-theme="dark"] .sbdocs-content p,
-[data-theme="dark"] .sbdocs-content li,
-[data-theme="dark"] .sbdocs-content td,
-[data-theme="dark"] .sbdocs-content th {
-  color: var(--fabric-text-primary);
+[data-theme="dark"] .sbdocs-content li {
+  color: var(--fabric-text-primary) !important;
+  border-color: var(--fabric-border-secondary) !important;
 }
-[data-theme="dark"] .sbdocs-content code {
-  background-color: var(--fabric-bg-secondary);
-  color: var(--fabric-text-secondary);
-  border-color: var(--fabric-border-secondary);
+/* Inline code + code blocks */
+[data-theme="dark"] .sbdocs-content code,
+[data-theme="dark"] .sbdocs-content pre,
+[data-theme="dark"] .docblock-source,
+[data-theme="dark"] .docblock-code-toggle,
+[data-theme="dark"] [class*="prismjs"] {
+  background-color: var(--fabric-bg-secondary) !important;
+  color: var(--fabric-text-secondary) !important;
+  border-color: var(--fabric-border-secondary) !important;
+}
+/* Tables (Variables, Typography, Themes pages + Controls panel) */
+[data-theme="dark"] .sbdocs-content table,
+[data-theme="dark"] .sbdocs-content thead,
+[data-theme="dark"] .sbdocs-content tbody,
+[data-theme="dark"] .sbdocs-content tr,
+[data-theme="dark"] .sbdocs-content th,
+[data-theme="dark"] .sbdocs-content td,
+[data-theme="dark"] [class*="docblock-argstable"],
+[data-theme="dark"] [class*="docblock-argstable"] th,
+[data-theme="dark"] [class*="docblock-argstable"] td {
+  background-color: transparent !important;
+  color: var(--fabric-text-primary) !important;
+  border-color: var(--fabric-border-secondary) !important;
+}
+[data-theme="dark"] .sbdocs-content th,
+[data-theme="dark"] [class*="docblock-argstable"] th {
+  background-color: var(--fabric-bg-secondary) !important;
+  color: var(--fabric-text-secondary) !important;
+}
+/* Links */
+[data-theme="dark"] .sbdocs-content a {
+  color: var(--fabric-text-brand-primary) !important;
+}
+/* Dividers */
+[data-theme="dark"] .sbdocs-content hr,
+[data-theme="dark"] .sbdocs-hr {
+  border-color: var(--fabric-border-secondary) !important;
+  background-color: var(--fabric-border-secondary) !important;
+}
+/* Preview actions bar ("Show code / Copy code") beneath canvases */
+[data-theme="dark"] .sbdocs-preview-actions,
+[data-theme="dark"] [class*="sbdocs-preview-actions"] {
+  background-color: var(--fabric-bg-secondary) !important;
+  color: var(--fabric-text-tertiary) !important;
+  border-color: var(--fabric-border-secondary) !important;
 }
