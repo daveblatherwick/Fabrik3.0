@@ -502,6 +502,16 @@ html, body {
   border-color: var(--fabric-border-secondary) !important;
   background-color: var(--fabric-border-secondary) !important;
 }
+/* Zoom toolbar (Zoom in / Zoom out / Reset) above story previews —
+   Storybook wraps it in a dynamic emotion class so we target by
+   containing a zoom button. Falls back to direct child selector. */
+[data-theme="dark"] .sbdocs-preview > div:has(button[aria-label^="Zoom"]),
+[data-theme="dark"] .sbdocs-preview div:has(> button[aria-label^="Zoom"]),
+[data-theme="dark"] .sbdocs-preview div:has(> div > button[aria-label^="Zoom"]) {
+  background-color: var(--fabric-bg-primary) !important;
+  border-color: var(--fabric-border-secondary) !important;
+}
+
 /* Preview actions bar ("Show code / Copy code") beneath canvases —
    match the canvas bg so the bar reads as one continuous surface. */
 [data-theme="dark"] .sbdocs-preview-actions,
