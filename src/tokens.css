@@ -509,3 +509,37 @@ html, body {
   color: var(--fabric-text-tertiary) !important;
   border-color: var(--fabric-border-secondary) !important;
 }
+
+/* Canvas zoom/toolbar strip above story previews */
+[data-theme="dark"] .sb-previewBlock_header,
+[data-theme="dark"] [class*="previewBlock_header"] {
+  background-color: var(--fabric-bg-secondary) !important;
+  border-color: var(--fabric-border-secondary) !important;
+}
+[data-theme="dark"] .sb-previewBlock_icon,
+[data-theme="dark"] [class*="previewBlock_icon"] {
+  background-color: var(--fabric-bg-tertiary) !important;
+  color: var(--fabric-fg-secondary) !important;
+}
+
+/* ArgsTable / Controls panel inputs — text fields, selects, buttons */
+[data-theme="dark"] .docblock-argstable input[type="text"],
+[data-theme="dark"] .docblock-argstable input[type="search"],
+[data-theme="dark"] .docblock-argstable input[type="number"],
+[data-theme="dark"] .docblock-argstable select,
+[data-theme="dark"] .docblock-argstable textarea,
+[data-theme="dark"] .sbdocs-content input[type="text"],
+[data-theme="dark"] .sbdocs-content input[type="search"],
+[data-theme="dark"] .sbdocs-content input[type="number"],
+[data-theme="dark"] .sbdocs-content select,
+[data-theme="dark"] .sbdocs-content textarea {
+  background-color: var(--fabric-bg-secondary) !important;
+  color: var(--fabric-text-primary) !important;
+  border-color: var(--fabric-border-secondary) !important;
+}
+[data-theme="dark"] .docblock-argstable button,
+[data-theme="dark"] .sbdocs-content button:not(.sb-previewBlock_icon):not([class*="iconButton"]) {
+  background-color: var(--fabric-bg-secondary) !important;
+  color: var(--fabric-text-primary) !important;
+  border-color: var(--fabric-border-secondary) !important;
+}
