@@ -428,16 +428,17 @@ html, body {
   margin: 0;
 }
 
-/* Storybook docs blocks: make the story-preview Canvas follow the theme
-   so components show on a themed background, not the default light box. */
+/* Storybook docs blocks: make story-preview Canvases follow the theme. */
+[data-theme="dark"] .sb-previewBlock,
+[data-theme="dark"] .sbdocs-preview,
 [data-theme="dark"] .docs-story,
-[data-theme="dark"] [class*="docblock-argstable"],
-[data-theme="dark"] [class*="sbdocs-preview"],
 [data-theme="dark"] .sb-story,
-[data-theme="dark"] [data-sb-docblock="canvas"] > div {
+[data-theme="dark"] .sb-nopreview_main {
   background-color: var(--fabric-bg-primary) !important;
-  color: var(--fabric-text-primary);
-}
-[data-theme="dark"] [class*="sbdocs-preview"] * {
+  color: var(--fabric-text-primary) !important;
   border-color: var(--fabric-border-secondary) !important;
+}
+[data-theme="dark"] .sb-previewBlock_icon {
+  background-color: var(--fabric-bg-secondary) !important;
+  color: var(--fabric-text-secondary) !important;
 }
