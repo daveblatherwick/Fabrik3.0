@@ -428,7 +428,9 @@ html, body {
   margin: 0;
 }
 
-/* Storybook docs blocks: make story-preview Canvases follow the theme. */
+/* Storybook docs: follow the theme across wrappers, content, canvases. */
+[data-theme="dark"] .sbdocs-wrapper,
+[data-theme="dark"] .sb-preparing-docs,
 [data-theme="dark"] .sb-previewBlock,
 [data-theme="dark"] .sbdocs-preview,
 [data-theme="dark"] .docs-story,
@@ -441,4 +443,20 @@ html, body {
 [data-theme="dark"] .sb-previewBlock_icon {
   background-color: var(--fabric-bg-secondary) !important;
   color: var(--fabric-text-secondary) !important;
+}
+/* Docs typography — make sure headings/code blocks render on the dark bg */
+[data-theme="dark"] .sbdocs-content h1,
+[data-theme="dark"] .sbdocs-content h2,
+[data-theme="dark"] .sbdocs-content h3,
+[data-theme="dark"] .sbdocs-content h4,
+[data-theme="dark"] .sbdocs-content p,
+[data-theme="dark"] .sbdocs-content li,
+[data-theme="dark"] .sbdocs-content td,
+[data-theme="dark"] .sbdocs-content th {
+  color: var(--fabric-text-primary);
+}
+[data-theme="dark"] .sbdocs-content code {
+  background-color: var(--fabric-bg-secondary);
+  color: var(--fabric-text-secondary);
+  border-color: var(--fabric-border-secondary);
 }
