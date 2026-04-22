@@ -502,12 +502,24 @@ html, body {
   border-color: var(--fabric-border-secondary) !important;
   background-color: var(--fabric-border-secondary) !important;
 }
-/* Preview actions bar ("Show code / Copy code") beneath canvases */
+/* Preview actions bar ("Show code / Copy code") beneath canvases —
+   match the canvas bg so the bar reads as one continuous surface. */
 [data-theme="dark"] .sbdocs-preview-actions,
-[data-theme="dark"] [class*="sbdocs-preview-actions"] {
-  background-color: var(--fabric-bg-secondary) !important;
+[data-theme="dark"] [class*="sbdocs-preview-actions"],
+[data-theme="dark"] .docblock-code-toggle,
+[data-theme="dark"] [class*="docblock-code-toggle"] {
+  background-color: var(--fabric-bg-primary) !important;
   color: var(--fabric-text-tertiary) !important;
   border-color: var(--fabric-border-secondary) !important;
+}
+[data-theme="dark"] .sbdocs-preview-actions button,
+[data-theme="dark"] [class*="sbdocs-preview-actions"] button {
+  background-color: transparent !important;
+  color: var(--fabric-text-tertiary) !important;
+}
+[data-theme="dark"] .sbdocs-preview-actions button:hover,
+[data-theme="dark"] [class*="sbdocs-preview-actions"] button:hover {
+  color: var(--fabric-text-primary) !important;
 }
 
 /* Canvas zoom/toolbar strip above story previews */
