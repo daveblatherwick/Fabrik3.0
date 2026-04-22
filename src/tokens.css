@@ -480,15 +480,15 @@ html, body {
 [data-theme="dark"] .sbdocs-content tr,
 [data-theme="dark"] .sbdocs-content th,
 [data-theme="dark"] .sbdocs-content td,
-[data-theme="dark"] [class*="docblock-argstable"],
-[data-theme="dark"] [class*="docblock-argstable"] th,
-[data-theme="dark"] [class*="docblock-argstable"] td {
+[data-theme="dark"] [class*="argstableBlock"],
+[data-theme="dark"] [class*="argstableBlock"] th,
+[data-theme="dark"] [class*="argstableBlock"] td {
   background-color: transparent !important;
   color: var(--fabric-text-primary) !important;
   border-color: var(--fabric-border-secondary) !important;
 }
 [data-theme="dark"] .sbdocs-content th,
-[data-theme="dark"] [class*="docblock-argstable"] th {
+[data-theme="dark"] [class*="argstableBlock"] th {
   background-color: var(--fabric-bg-secondary) !important;
   color: var(--fabric-text-secondary) !important;
 }
@@ -496,28 +496,28 @@ html, body {
    paints type annotations (string/union/boolean) in a dark slate color
    that's unreadable on dark bg. Force them to a readable tertiary. */
 [data-theme="dark"] .sbdocs-content td *,
-[data-theme="dark"] [class*="docblock-argstable"] td *,
-[data-theme="dark"] [class*="docblock-argstable"] td span,
-[data-theme="dark"] [class*="docblock-argstable"] td code {
+[data-theme="dark"] [class*="argstableBlock"] td *,
+[data-theme="dark"] [class*="argstableBlock"] td span,
+[data-theme="dark"] [class*="argstableBlock"] td code {
   color: var(--fabric-text-secondary) !important;
 }
 /* Argstable controls column — boolean pill (False/True), "Set ..." buttons,
    the edit/revert affordance. These render as <label>/<button>/<input>
    with hardcoded light bg via emotion classes. */
-[data-theme="dark"] [class*="docblock-argstable"] td label,
-[data-theme="dark"] [class*="docblock-argstable"] td button,
-[data-theme="dark"] [class*="docblock-argstable"] td input[type="text"],
-[data-theme="dark"] [class*="docblock-argstable"] td input[type="number"],
-[data-theme="dark"] [class*="docblock-argstable"] td textarea,
-[data-theme="dark"] [class*="docblock-argstable"] td select {
+[data-theme="dark"] [class*="argstableBlock"] td label,
+[data-theme="dark"] [class*="argstableBlock"] td button,
+[data-theme="dark"] [class*="argstableBlock"] td input[type="text"],
+[data-theme="dark"] [class*="argstableBlock"] td input[type="number"],
+[data-theme="dark"] [class*="argstableBlock"] td textarea,
+[data-theme="dark"] [class*="argstableBlock"] td select {
   background-color: var(--fabric-bg-secondary) !important;
   color: var(--fabric-text-primary) !important;
   border-color: var(--fabric-border-secondary) !important;
 }
 /* The active half of the boolean pill (whichever is selected) */
-[data-theme="dark"] [class*="docblock-argstable"] td label[class*="checked"],
-[data-theme="dark"] [class*="docblock-argstable"] td label input:checked + *,
-[data-theme="dark"] [class*="docblock-argstable"] td label:has(input:checked) {
+[data-theme="dark"] [class*="argstableBlock"] td label[class*="checked"],
+[data-theme="dark"] [class*="argstableBlock"] td label input:checked + *,
+[data-theme="dark"] [class*="argstableBlock"] td label:has(input:checked) {
   background-color: var(--fabric-bg-primary) !important;
   color: var(--fabric-text-primary) !important;
 }

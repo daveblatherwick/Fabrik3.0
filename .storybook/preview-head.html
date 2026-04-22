@@ -1,0 +1,24 @@
+<script>
+(function () {
+  function applyGlobalsFromUrl() {
+    try {
+      var qs = new URLSearchParams(window.location.search);
+      var g = qs.get("globals") || "";
+      var pairs = g.split(";").map(function (s) { return s.split(":"); });
+      var brand = "adaptive", theme = "light", density = "default";
+      for (var i = 0; i < pairs.length; i++) {
+        var k = pairs[i][0], v = pairs[i][1];
+        if (k === "brand") brand = v;
+        if (k === "theme") theme = v;
+        if (k === "density") density = v;
+      }
+      document.documentElement.dataset.brand = brand;
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.dataset.density = density;
+    } catch (e) { /* ignore */ }
+  }
+  applyGlobalsFromUrl();
+  window.addEventListener("popstate", applyGlobalsFromUrl);
+  window.addEventListener("hashchange", applyGlobalsFromUrl);
+})();
+</script>
