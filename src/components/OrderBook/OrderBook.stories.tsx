@@ -33,7 +33,7 @@ const meta: Meta<typeof OrderBook> = {
 export default meta;
 type Story = StoryObj<typeof OrderBook>;
 
-export const BTCUSD: Story = {
+export const Default: Story = {
   args: {
     asks,
     bids,
