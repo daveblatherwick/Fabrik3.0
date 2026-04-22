@@ -1,4 +1,4 @@
-import { useMemo, type CSSProperties } from "react";
+import { type CSSProperties } from "react";
 import styles from "./OrderBook.module.css";
 
 export interface OrderLevel {
@@ -31,17 +31,16 @@ const fmt = (n: number, dp: number) =>
 function Row({
   level,
   side,
-  maxTotal,
+  depth,
   priceDecimals,
   amountDecimals,
 }: {
   level: OrderLevel;
   side: "ask" | "bid";
-  maxTotal: number;
+  depth: number;
   priceDecimals: number;
   amountDecimals: number;
 }) {
-  const depth = maxTotal > 0 ? (level.total / maxTotal) * 100 : 0;
   return (
     <div className={styles.row} style={{ ["--depth" as string]: `${depth}%` } as CSSProperties}>
       <span
@@ -68,12 +67,13 @@ export function OrderBook({
   amountDecimals = 4,
   className,
 }: OrderBookProps) {
-  const maxTotal = useMemo(() => {
-    let m = 0;
-    for (const l of asks) if (l.total > m) m = l.total;
-    for (const l of bids) if (l.total > m) m = l.total;
-    return m;
-  }, [asks, bids]);
+  // Static depth pattern: largest bars at the outer edges, smallest near the spread.
+  // Independent of data so the bars never reflow as prices update.
+  const staticDepth = (index: number, count: number) => {
+    if (count <= 1) return 100;
+    const t = index / (count - 1); // 0..1 from spread-edge outward
+    return 10 + t * 80; // 10% near spread → 90% at far edge
+  };
 
   const bestAsk = asks[0]?.price ?? lastPrice;
   const bestBid = bids[0]?.price ?? lastPrice;
@@ -115,12 +115,12 @@ export function OrderBook({
           </span>
         </div>
 
-        {asksDisplay.map((lvl) => (
+        {asksDisplay.map((lvl, i) => (
           <Row
             key={`a-${lvl.price}`}
             level={lvl}
             side="ask"
-            maxTotal={maxTotal}
+            depth={staticDepth(asksDisplay.length - 1 - i, asksDisplay.length)}
             priceDecimals={priceDecimals}
             amountDecimals={amountDecimals}
           />
@@ -140,12 +140,12 @@ export function OrderBook({
           </span>
         </div>
 
-        {bids.map((lvl) => (
+        {bids.map((lvl, i) => (
           <Row
             key={`b-${lvl.price}`}
             level={lvl}
             side="bid"
-            maxTotal={maxTotal}
+            depth={staticDepth(i, bids.length)}
             priceDecimals={priceDecimals}
             amountDecimals={amountDecimals}
           />
