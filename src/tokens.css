@@ -427,3 +427,17 @@ html, body {
   font-family: var(--fabric-font-family-body);
   margin: 0;
 }
+
+/* Storybook docs blocks: make the story-preview Canvas follow the theme
+   so components show on a themed background, not the default light box. */
+[data-theme="dark"] .docs-story,
+[data-theme="dark"] [class*="docblock-argstable"],
+[data-theme="dark"] [class*="sbdocs-preview"],
+[data-theme="dark"] .sb-story,
+[data-theme="dark"] [data-sb-docblock="canvas"] > div {
+  background-color: var(--fabric-bg-primary) !important;
+  color: var(--fabric-text-primary);
+}
+[data-theme="dark"] [class*="sbdocs-preview"] * {
+  border-color: var(--fabric-border-secondary) !important;
+}
