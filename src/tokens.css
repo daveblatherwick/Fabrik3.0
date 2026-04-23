@@ -330,6 +330,23 @@
   --fabric-orderbook-depth-ask: rgba(115, 0, 0, 0.08);
   --fabric-orderbook-depth-bid: rgba(7, 148, 85, 0.1);
 
+  /* Component — ChartWithSummary (light) */
+  --fabric-chart-bg: #FFFFFF;
+  --fabric-chart-panel-bg: #FAFAFA;
+  --fabric-chart-axis: var(--fabric-text-tertiary);
+  --fabric-chart-grid: rgba(0, 0, 0, 0.06);
+  --fabric-chart-area-line: var(--fabric-brand-600);
+  --fabric-chart-area-top: rgba(103, 106, 198, 0.3);
+  --fabric-chart-area-bottom: rgba(103, 106, 198, 0.02);
+  --fabric-chart-up: var(--fabric-success-600);
+  --fabric-chart-down: #730000;
+  --fabric-chart-tf-bg: transparent;
+  --fabric-chart-tf-active: var(--fabric-brand-500);
+  --fabric-chart-tile-bg: #FAFAFA;
+  --fabric-chart-tile-label: var(--fabric-text-tertiary);
+  --fabric-chart-tile-value: var(--fabric-text-primary);
+  --fabric-chart-tile-accent: var(--fabric-brand-500);
+
   /* Component — WatchList (light) */
   --fabric-watchlist-bg: #FFFFFF;
   --fabric-watchlist-surface: #FAFAFA;
@@ -422,6 +439,23 @@
   --fabric-orderbook-bid: #47CD89;
   --fabric-orderbook-depth-ask: rgba(246, 61, 104, 0.16);
   --fabric-orderbook-depth-bid: rgba(71, 205, 137, 0.16);
+
+  /* Component — ChartWithSummary (dark) */
+  --fabric-chart-bg: #141414;
+  --fabric-chart-panel-bg: #0F0F0F;
+  --fabric-chart-axis: #A3A3A3;
+  --fabric-chart-grid: rgba(255, 255, 255, 0.06);
+  --fabric-chart-area-line: var(--fabric-brand-500);
+  --fabric-chart-area-top: rgba(129, 132, 248, 0.4);
+  --fabric-chart-area-bottom: rgba(129, 132, 248, 0.02);
+  --fabric-chart-up: #47CD89;
+  --fabric-chart-down: #F63D68;
+  --fabric-chart-tf-bg: transparent;
+  --fabric-chart-tf-active: var(--fabric-brand-400);
+  --fabric-chart-tile-bg: #141414;
+  --fabric-chart-tile-label: #737373;
+  --fabric-chart-tile-value: #D6D6D6;
+  --fabric-chart-tile-accent: var(--fabric-brand-400);
 
   /* Component — WatchList (dark) */
   --fabric-watchlist-bg: #141414;

@@ -1,0 +1,92 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fabric-spacing-sm);
+  padding: var(--fabric-spacing-md);
+  background-color: var(--fabric-chart-tile-bg);
+  border: 1px solid var(--fabric-border-secondary);
+  border-radius: var(--fabric-radius-sm);
+  font-family: var(--fabric-font-family-body);
+  color: var(--fabric-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--fabric-spacing-md);
+}
+
+.symbol {
+  font-size: var(--fabric-text-md);
+  font-weight: var(--fabric-font-weight-semibold);
+  color: var(--fabric-chart-tile-value);
+}
+
+.spot {
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-chart-tile-label);
+  white-space: nowrap;
+}
+
+.range {
+  display: flex;
+  gap: var(--fabric-spacing-md);
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-chart-tile-label);
+}
+
+.prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--fabric-spacing-sm);
+  margin-top: var(--fabric-spacing-xs);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  padding: var(--fabric-spacing-sm);
+  background-color: var(--fabric-chart-panel-bg);
+  border-radius: var(--fabric-radius-xs);
+  cursor: pointer;
+  gap: 2px;
+  border: 1px solid transparent;
+  transition: border-color 120ms;
+}
+
+.side:hover { border-color: var(--fabric-border-secondary); }
+
+.sideLabel {
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-chart-tile-label);
+}
+
+.sidePrice {
+  font-size: var(--fabric-text-lg);
+  font-weight: var(--fabric-font-weight-semibold);
+  color: var(--fabric-chart-tile-value);
+}
+
+.sideBadge {
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-chart-tile-label);
+  align-self: flex-end;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--fabric-spacing-xs);
+  border-top: 1px solid var(--fabric-chart-grid);
+  font-size: var(--fabric-text-xs);
+}
+
+.qtyLabel { color: var(--fabric-chart-tile-label); }
+.qty {
+  color: var(--fabric-chart-tile-value);
+  font-weight: var(--fabric-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}

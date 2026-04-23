@@ -1,0 +1,186 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 810px;
+  background-color: var(--fabric-chart-bg);
+  color: var(--fabric-text-primary);
+  font-family: var(--fabric-font-family-body);
+  border: 1px solid var(--fabric-border-secondary);
+  border-radius: var(--fabric-radius-sm);
+  overflow: hidden;
+}
+
+/* Header: product + metrics */
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--fabric-spacing-2xl);
+  padding: var(--fabric-spacing-md) var(--fabric-spacing-lg);
+  background-color: var(--fabric-chart-bg);
+  border-bottom: 1px solid var(--fabric-border-secondary);
+}
+
+.product {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fabric-spacing-md);
+}
+
+.productIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f7931a, #ffb347);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fabric-font-weight-bold);
+  font-size: var(--fabric-text-lg);
+}
+
+.productMeta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.productSymbol {
+  font-size: var(--fabric-text-lg);
+  font-weight: var(--fabric-font-weight-semibold);
+  color: var(--fabric-text-primary);
+}
+
+.productName {
+  font-size: var(--fabric-text-sm);
+  color: var(--fabric-text-tertiary);
+}
+
+.metrics {
+  display: flex;
+  align-items: center;
+  gap: var(--fabric-spacing-xl);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 2px;
+}
+
+.metricLabel {
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-text-tertiary);
+  white-space: nowrap;
+}
+
+.metricValue {
+  font-size: var(--fabric-text-lg);
+  font-weight: var(--fabric-font-weight-semibold);
+  color: var(--fabric-text-primary);
+  white-space: nowrap;
+}
+
+.metricValue.up { color: var(--fabric-chart-up); }
+.metricValue.down { color: var(--fabric-chart-down); }
+
+/* Body: tools | chart | tiles */
+.body {
+  display: grid;
+  grid-template-columns: 32px 1fr 270px;
+  min-height: 600px;
+  background-color: var(--fabric-chart-bg);
+}
+
+.tools {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--fabric-spacing-md);
+  padding: var(--fabric-spacing-md) 0;
+  background-color: var(--fabric-chart-bg);
+  border-right: 1px solid var(--fabric-border-secondary);
+  color: var(--fabric-fg-tertiary);
+}
+
+.toolButton {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 4px;
+  cursor: pointer;
+  color: inherit;
+  display: inline-flex;
+  border-radius: var(--fabric-radius-xs);
+}
+.toolButton:hover { background: var(--fabric-bg-secondary); color: var(--fabric-text-primary); }
+
+/* Chart column */
+.chartColumn {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--fabric-chart-bg);
+}
+
+.timeframes {
+  display: flex;
+  align-items: center;
+  gap: var(--fabric-spacing-md);
+  padding: var(--fabric-spacing-sm) var(--fabric-spacing-md);
+  border-bottom: 1px solid var(--fabric-border-secondary);
+  font-size: var(--fabric-text-md);
+  font-weight: var(--fabric-font-weight-medium);
+  color: var(--fabric-text-tertiary);
+}
+
+.tf {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: var(--fabric-radius-xs);
+}
+
+.tf:hover { color: var(--fabric-text-primary); }
+
+.tf.active {
+  color: var(--fabric-chart-tf-active);
+  font-weight: var(--fabric-font-weight-semibold);
+}
+
+.tf:focus-visible { outline: 2px solid var(--fabric-focus-ring); outline-offset: 2px; }
+
+.chart {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  position: relative;
+}
+
+.chartLoading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fabric-text-tertiary);
+  font-size: var(--fabric-text-sm);
+  pointer-events: none;
+}
+
+/* Right column with summary tiles */
+.tiles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fabric-spacing-md);
+  padding: var(--fabric-spacing-md);
+  background-color: var(--fabric-chart-bg);
+  border-left: 1px solid var(--fabric-border-secondary);
+  overflow-y: auto;
+}
