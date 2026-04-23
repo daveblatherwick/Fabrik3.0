@@ -86,10 +86,10 @@
 .metricValue.up { color: var(--fabric-chart-up); }
 .metricValue.down { color: var(--fabric-chart-down); }
 
-/* Body: tools | chart | tiles */
+/* Body: tools | chart */
 .body {
   display: grid;
-  grid-template-columns: 32px 1fr 270px;
+  grid-template-columns: 32px 1fr;
   min-height: 600px;
   background-color: var(--fabric-chart-bg);
 }
@@ -174,13 +174,3 @@
   pointer-events: none;
 }
 
-/* Right column with summary tiles */
-.tiles {
-  display: flex;
-  flex-direction: column;
-  gap: var(--fabric-spacing-md);
-  padding: var(--fabric-spacing-md);
-  background-color: var(--fabric-chart-bg);
-  border-left: 1px solid var(--fabric-border-secondary);
-  overflow-y: auto;
-}

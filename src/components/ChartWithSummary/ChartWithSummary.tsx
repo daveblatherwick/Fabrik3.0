@@ -7,7 +7,6 @@ import {
 } from "lightweight-charts";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import styles from "./ChartWithSummary.module.css";
-import { CurrencyTile, type CurrencyTileProps } from "../CurrencyTile/CurrencyTile";
 
 type ChartTheme = {
   bg: string;
@@ -61,8 +60,6 @@ export interface ChartWithSummaryProps {
   onTimeframeChange?: (tf: Timeframe) => void;
   /** OHLCV-style metric strip above the chart */
   metrics?: Array<{ label: string; value: ReactNode; trend?: "up" | "down" }>;
-  /** Currency tiles shown in the right column */
-  tiles?: CurrencyTileProps[];
   className?: string;
 }
 
@@ -86,7 +83,6 @@ export function ChartWithSummary({
   timeframe = "1D",
   onTimeframeChange,
   metrics = [],
-  tiles = [],
   className,
 }: ChartWithSummaryProps) {
   const [tf, setTf] = useState<Timeframe>(timeframe);
@@ -246,12 +242,6 @@ export function ChartWithSummary({
           <div className={styles.chart} ref={chartContainer}>
             {data.length === 0 && <div className={styles.chartLoading}>Loading chart…</div>}
           </div>
-        </div>
-
-        <div className={styles.tiles}>
-          {tiles.map((tile, i) => (
-            <CurrencyTile key={`${tile.symbol}-${i}`} {...tile} />
-          ))}
         </div>
       </div>
     </div>

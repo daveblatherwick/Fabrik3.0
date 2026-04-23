@@ -89,7 +89,7 @@ const meta: Meta<typeof ChartWithSummary> = {
     docs: {
       description: {
         component:
-          "A composite trading view: product header + OHLCV metrics, a TradingView Lightweight Charts area chart, timeframe tabs, a tools sidebar, and a stack of CurrencyTiles on the right.",
+          "A composite crypto trading view: product header + OHLCV metrics, a TradingView Lightweight Charts area chart, a timeframe selector, and a tools sidebar.",
       },
       page: fabricDocsPage({
         status: "alpha",
@@ -102,11 +102,11 @@ const meta: Meta<typeof ChartWithSummary> = {
           nodeId: "552:34097",
         },
         designNotes: [
-          "Chart rendered by TradingView Lightweight Charts v5 (free, MIT). Colours/fonts read from --fabric-chart-* tokens at mount so the chart canvas matches the active theme.",
-          "Fixed 810px width matching the Figma frame. Grid: 32px tools sidebar + flexible chart + 270px tiles column.",
+          "Chart rendered by TradingView Lightweight Charts v5 (free, MIT). Palette read from --fabric-chart-* tokens and re-applied whenever data-theme/brand/density changes on the document root, via a MutationObserver.",
+          "Fixed 810px width matching the Figma frame. Grid: 32px tools sidebar + flexible chart column.",
           "Timeframe tabs are controlled or uncontrolled — if onTimeframeChange is provided the consumer owns state.",
           "Metrics strip accepts arbitrary label/value pairs plus an optional `trend` prop that tints the value green or red.",
-          "Right column stacks CurrencyTile components — standalone primitive you can also use alone.",
+          "Currency tiles (see the standalone CurrencyTile primitive) were in the Figma frame but belong to the FX RFQ surface, not a crypto chart — intentionally omitted here.",
         ],
         a11yNotes: [
           "Timeframe tabs use role=tablist + aria-selected.",
@@ -179,12 +179,6 @@ const LiveRender = () => {
       timeframe={tf}
       onTimeframeChange={setTf}
       metrics={metrics}
-      tiles={[
-        { symbol: "EUR/USD", spotLabel: "Spot (09 Nov)", low: 1.35795, high: 1.36801, sell: 1.36043, buy: 1.36065, spreadPips: 2.2, quantity: 10_000_000 },
-        { symbol: "GBP/USD", spotLabel: "Spot (09 Nov)", low: 1.26120, high: 1.27310, sell: 1.26640, buy: 1.26661, spreadPips: 2.1, quantity: 5_000_000 },
-        { symbol: "USD/JPY", spotLabel: "Spot (09 Nov)", low: 149.420, high: 149.980, sell: 149.683, buy: 149.702, spreadPips: 1.9, quantity: 15_000_000, priceDecimals: 3 },
-        { symbol: "AUD/USD", spotLabel: "Spot (09 Nov)", low: 0.65890, high: 0.66420, sell: 0.66112, buy: 0.66135, spreadPips: 2.3, quantity: 8_000_000 },
-      ]}
     />
   );
 };
