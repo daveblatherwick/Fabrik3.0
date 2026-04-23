@@ -2,12 +2,22 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Table, TableRow, TableHeaderCell, TableCell, type SortDirection } from "./Table";
 
-const meta: Meta = {
+const meta: Meta<typeof Table> = {
   title: "Components/Table",
+  component: Table,
+  subcomponents: { TableRow, TableHeaderCell, TableCell },
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Primitive table building blocks — `Table`, `TableRow`, `TableHeaderCell`, `TableCell` — designed for dense, numerical fintech data. Compose them directly: `<Table><thead><TableRow><TableHeaderCell /></TableRow></thead><tbody>...</tbody></Table>`.",
+      },
+    },
+  },
 };
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<typeof Table>;
 
 const positions = [
   { symbol: "GBP/USD", qty: 120_000, px: 1.2684, pnl: 845.32 },
