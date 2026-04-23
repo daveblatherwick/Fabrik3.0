@@ -20,7 +20,12 @@ const faviconInner = faviconSvg
 const buildBrandImage = (mode: "dark" | "light") => {
   const wordmarkFill = mode === "dark" ? "#F7F7F7" : "#141414";
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="32" viewBox="0 0 128 32" fill="none">
-    <svg x="2" y="1" width="30" height="29" viewBox="0 0 48 46" fill="none">${faviconInner}</svg>
+    <defs>
+      <clipPath id="fabrik-clip"><rect x="0" y="0" width="48" height="46"/></clipPath>
+    </defs>
+    <svg x="2" y="1" width="30" height="29" viewBox="0 0 48 46" fill="none" overflow="hidden" preserveAspectRatio="xMidYMid meet">
+      <g clip-path="url(#fabrik-clip)">${faviconInner}</g>
+    </svg>
     <text x="40" y="22" font-family="Work Sans, system-ui, sans-serif" font-size="18" font-weight="700" fill="${wordmarkFill}" letter-spacing="-0.01em">Fabrik</text>
   </svg>`;
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
