@@ -20,7 +20,7 @@ const SPARKLINE = Array.from({ length: 40 }, (_, i) =>
 );
 
 const meta: Meta<typeof CcyTile> = {
-  title: "FX Components/CcyTile",
+  title: "FX Components/Currency Tile",
   component: CcyTile,
   tags: ["autodocs"],
   parameters: {
