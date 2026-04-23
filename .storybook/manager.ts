@@ -15,7 +15,7 @@ const buildBrandImage = (mode: "dark" | "light") => {
     <svg x="2" y="1" width="28" height="28" viewBox="0 0 48 46" fill="none">
       <path fill="#676AC6" d="${FAVICON_PATH}"/>
     </svg>
-    <text x="38" y="21" font-family="Work Sans, system-ui, sans-serif" font-size="14" font-weight="600" fill="${textFill}" letter-spacing="0.01em">Fabrik Design System</text>
+    <text x="38" y="21" font-family="Work Sans, system-ui, sans-serif" font-size="14" font-weight="600" fill="${textFill}" letter-spacing="0.01em">Fabrik</text>
   </svg>`;
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 };
@@ -25,7 +25,7 @@ const applyTheme = (mode: string | undefined) => {
   addons.setConfig({
     theme: create({
       base: dark ? "dark" : "light",
-      brandTitle: "Fabrik Design System",
+      brandTitle: "Fabrik",
       brandImage: buildBrandImage(dark ? "dark" : "light"),
       brandUrl: BRAND_URL,
     }),
