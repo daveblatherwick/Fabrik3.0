@@ -330,6 +330,19 @@
   --fabric-orderbook-depth-ask: rgba(115, 0, 0, 0.08);
   --fabric-orderbook-depth-bid: rgba(7, 148, 85, 0.1);
 
+  /* Component — WatchList (light) */
+  --fabric-watchlist-bg: #FFFFFF;
+  --fabric-watchlist-surface: #FAFAFA;
+  --fabric-watchlist-search-bg: #F5F5F5;
+  --fabric-watchlist-tab-bg: #F5F5F5;
+  --fabric-watchlist-tab-active-fg: var(--fabric-brand-600);
+  --fabric-watchlist-tab-inactive-fg: var(--fabric-text-tertiary);
+  --fabric-watchlist-row-hover: rgba(0, 0, 0, 0.03);
+  --fabric-watchlist-row-selected: var(--fabric-brand-50);
+  --fabric-watchlist-divider: rgba(0, 0, 0, 0.06);
+  --fabric-watchlist-up: var(--fabric-success-600);
+  --fabric-watchlist-down: #730000;
+
   /* Component — DepthChart (light) */
   --fabric-depthchart-bg: #FAFAFA;
   --fabric-depthchart-ask-fill: rgba(115, 0, 0, 0.25);
@@ -409,6 +422,19 @@
   --fabric-orderbook-bid: #47CD89;
   --fabric-orderbook-depth-ask: rgba(246, 61, 104, 0.16);
   --fabric-orderbook-depth-bid: rgba(71, 205, 137, 0.16);
+
+  /* Component — WatchList (dark) */
+  --fabric-watchlist-bg: #141414;
+  --fabric-watchlist-surface: #0F0F0F;
+  --fabric-watchlist-search-bg: #1F1F1F;
+  --fabric-watchlist-tab-bg: #1F1F1F;
+  --fabric-watchlist-tab-active-fg: var(--fabric-brand-300);
+  --fabric-watchlist-tab-inactive-fg: #737373;
+  --fabric-watchlist-row-hover: rgba(255, 255, 255, 0.03);
+  --fabric-watchlist-row-selected: #F5F5F5;
+  --fabric-watchlist-divider: rgba(255, 255, 255, 0.06);
+  --fabric-watchlist-up: #47CD89;
+  --fabric-watchlist-down: #F63D68;
 
   /* Component — DepthChart (dark) */
   --fabric-depthchart-bg: #141414;
