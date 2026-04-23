@@ -5,9 +5,42 @@ import {
   type ISeriesApi,
   type Time,
 } from "lightweight-charts";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import styles from "./ChartWithSummary.module.css";
 import { CurrencyTile, type CurrencyTileProps } from "../CurrencyTile/CurrencyTile";
+
+type ChartTheme = {
+  bg: string;
+  axis: string;
+  grid: string;
+  line: string;
+  areaTop: string;
+  areaBottom: string;
+};
+
+const DEFAULT_THEME: ChartTheme = {
+  bg: "#141414",
+  axis: "#a3a3a3",
+  grid: "rgba(255,255,255,0.06)",
+  line: "#8184f8",
+  areaTop: "rgba(129,132,248,0.4)",
+  areaBottom: "rgba(129,132,248,0.02)",
+};
+
+function readChartTheme(): ChartTheme {
+  if (typeof window === "undefined") return DEFAULT_THEME;
+  const cs = getComputedStyle(document.documentElement);
+  const get = (v: string, fallback: string) =>
+    cs.getPropertyValue(v).trim() || fallback;
+  return {
+    bg: get("--fabric-chart-bg", DEFAULT_THEME.bg),
+    axis: get("--fabric-chart-axis", DEFAULT_THEME.axis),
+    grid: get("--fabric-chart-grid", DEFAULT_THEME.grid),
+    line: get("--fabric-chart-area-line", DEFAULT_THEME.line),
+    areaTop: get("--fabric-chart-area-top", DEFAULT_THEME.areaTop),
+    areaBottom: get("--fabric-chart-area-bottom", DEFAULT_THEME.areaBottom),
+  };
+}
 
 export type Timeframe = "1m" | "5m" | "15m" | "1h" | "4h" | "1D";
 
@@ -63,44 +96,46 @@ export function ChartWithSummary({
   const chartRef = useRef<IChartApi | null>(null);
   const seriesRef = useRef<ISeriesApi<"Area"> | null>(null);
 
-  // Derive CSS variable values (for the chart's own pixel-painted chrome)
-  const themeVars = useMemo(() => {
-    if (typeof window === "undefined") return null;
-    const cs = getComputedStyle(document.documentElement);
-    return {
-      bg: cs.getPropertyValue("--fabric-chart-bg").trim() || "#141414",
-      axis: cs.getPropertyValue("--fabric-chart-axis").trim() || "#a3a3a3",
-      grid: cs.getPropertyValue("--fabric-chart-grid").trim() || "rgba(255,255,255,0.06)",
-      line: cs.getPropertyValue("--fabric-chart-area-line").trim() || "#8184f8",
-      areaTop: cs.getPropertyValue("--fabric-chart-area-top").trim() || "rgba(129,132,248,0.4)",
-      areaBottom: cs.getPropertyValue("--fabric-chart-area-bottom").trim() || "rgba(129,132,248,0.02)",
-    };
+  const [chartTheme, setChartTheme] = useState<ChartTheme>(() => readChartTheme());
+
+  // Watch for data-theme / data-brand changes on the document root and
+  // re-read the CSS vars so the canvas reflects the active palette.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const update = () => setChartTheme(readChartTheme());
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme", "data-brand", "data-density"],
+    });
+    return () => observer.disconnect();
   }, []);
 
-  // Create chart
+  // Create chart once.
   useEffect(() => {
-    if (!chartContainer.current || !themeVars) return;
+    if (!chartContainer.current) return;
 
     const chart = createChart(chartContainer.current, {
       autoSize: true,
       layout: {
-        background: { color: themeVars.bg },
-        textColor: themeVars.axis,
+        background: { color: chartTheme.bg },
+        textColor: chartTheme.axis,
         fontFamily: "Work Sans, system-ui, sans-serif",
       },
       grid: {
-        vertLines: { color: themeVars.grid },
-        horzLines: { color: themeVars.grid },
+        vertLines: { color: chartTheme.grid },
+        horzLines: { color: chartTheme.grid },
       },
-      rightPriceScale: { borderColor: themeVars.grid },
-      timeScale: { borderColor: themeVars.grid, timeVisible: true, secondsVisible: false },
+      rightPriceScale: { borderColor: chartTheme.grid },
+      timeScale: { borderColor: chartTheme.grid, timeVisible: true, secondsVisible: false },
       crosshair: { mode: 1 },
     });
 
     const series = chart.addSeries(AreaSeries, {
-      lineColor: themeVars.line,
-      topColor: themeVars.areaTop,
-      bottomColor: themeVars.areaBottom,
+      lineColor: chartTheme.line,
+      topColor: chartTheme.areaTop,
+      bottomColor: chartTheme.areaBottom,
       lineWidth: 2,
       priceLineVisible: true,
     });
@@ -113,7 +148,29 @@ export function ChartWithSummary({
       chartRef.current = null;
       seriesRef.current = null;
     };
-  }, [themeVars]);
+    // Intentionally [] — recreating the chart would drop interaction state.
+    // Theme updates go through the applyOptions effect below.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Apply theme updates without recreating the chart.
+  useEffect(() => {
+    if (!chartRef.current || !seriesRef.current) return;
+    chartRef.current.applyOptions({
+      layout: { background: { color: chartTheme.bg }, textColor: chartTheme.axis },
+      grid: {
+        vertLines: { color: chartTheme.grid },
+        horzLines: { color: chartTheme.grid },
+      },
+      rightPriceScale: { borderColor: chartTheme.grid },
+      timeScale: { borderColor: chartTheme.grid },
+    });
+    seriesRef.current.applyOptions({
+      lineColor: chartTheme.line,
+      topColor: chartTheme.areaTop,
+      bottomColor: chartTheme.areaBottom,
+    });
+  }, [chartTheme]);
 
   // Update data
   useEffect(() => {
