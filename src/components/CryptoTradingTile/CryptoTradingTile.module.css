@@ -1,0 +1,344 @@
+.root {
+  width: 346px;
+  font-family: var(--fabric-font-family-body);
+  color: var(--fabric-text-primary);
+  background-color: var(--fabric-cryptotile-bg);
+  border: 2px solid transparent;
+  border-radius: var(--fabric-radius-sm);
+  overflow: hidden;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Header: quantity + symbol + search */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 28px;
+  background-color: var(--fabric-cryptotile-panel-bg);
+}
+
+.headerCell {
+  display: flex;
+  align-items: center;
+  gap: var(--fabric-spacing-xs);
+  padding: 0 var(--fabric-spacing-md);
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-cryptotile-label);
+  border-right: 1px solid var(--fabric-cryptotile-divider);
+}
+.headerCell:last-child { border-right: 0; justify-content: space-between; }
+
+.headerInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--fabric-cryptotile-value);
+  font-size: var(--fabric-text-md);
+  outline: none;
+}
+.headerInput::placeholder { color: var(--fabric-cryptotile-muted); }
+
+.symbol {
+  font-size: var(--fabric-text-md);
+  color: var(--fabric-text-secondary);
+  font-weight: var(--fabric-font-weight-medium);
+}
+
+.search {
+  color: var(--fabric-cryptotile-muted);
+  display: inline-flex;
+}
+
+/* Quote body */
+.quote {
+  display: grid;
+  grid-template-columns: 1fr 44px 1fr;
+  background-color: var(--fabric-cryptotile-bg);
+  min-height: 90px;
+  position: relative;
+}
+
+.side {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: var(--fabric-spacing-xs) var(--fabric-spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 120ms;
+}
+
+.side:hover:not(:disabled) { background-color: var(--fabric-cryptotile-sell-hover); }
+.side.buySide:hover:not(:disabled) { background-color: var(--fabric-cryptotile-buy-hover); }
+
+.side.active.sellSide { background-color: var(--fabric-cryptotile-sell-hover); }
+.side.active.buySide { background-color: var(--fabric-cryptotile-buy-hover); }
+
+.sideLabel {
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-cryptotile-muted);
+  font-weight: var(--fabric-font-weight-medium);
+  letter-spacing: 0.02em;
+}
+
+.sidePrice {
+  font-size: 28px;
+  line-height: 1;
+  font-weight: var(--fabric-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  color: var(--fabric-cryptotile-value);
+  white-space: nowrap;
+}
+
+.sideDelta {
+  font-size: var(--fabric-text-md);
+  color: var(--fabric-cryptotile-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.side.buySide { align-items: flex-end; text-align: right; }
+
+.side.sellSide.active .sidePrice,
+.side.sellSide.active .sideDelta,
+.side.sellSide:hover:not(:disabled) .sidePrice,
+.side.sellSide:hover:not(:disabled) .sideDelta {
+  color: var(--fabric-cryptotile-sell);
+}
+
+.side.buySide.active .sidePrice,
+.side.buySide.active .sideDelta,
+.side.buySide:hover:not(:disabled) .sidePrice,
+.side.buySide:hover:not(:disabled) .sideDelta {
+  color: var(--fabric-cryptotile-buy);
+}
+
+.spreadBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-cryptotile-muted);
+  font-variant-numeric: tabular-nums;
+  padding: var(--fabric-spacing-xs);
+}
+
+/* Market status pill that replaces/complements the spread badge */
+.statusPill {
+  padding: 2px 8px;
+  border-radius: var(--fabric-radius-full);
+  font-size: var(--fabric-text-xs);
+  font-weight: var(--fabric-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.status-auction {
+  background-color: var(--fabric-cryptotile-status-auction-bg);
+  color: var(--fabric-cryptotile-status-auction-fg);
+}
+.status-halted {
+  background-color: var(--fabric-cryptotile-status-halted-bg);
+  color: var(--fabric-cryptotile-status-halted-fg);
+}
+.status-closed {
+  background-color: var(--fabric-cryptotile-status-closed-bg);
+  color: var(--fabric-cryptotile-status-closed-fg);
+}
+
+/* L/H range strips */
+.rangeStrip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 18px;
+  padding: 0 var(--fabric-spacing-md);
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-cryptotile-muted);
+  background-color: var(--fabric-cryptotile-panel-bg);
+}
+.rangeStrip span { display: flex; align-items: center; gap: 4px; }
+.rangeStrip span:last-child { justify-content: flex-end; }
+
+/* No market large text */
+.noMarket {
+  font-size: 24px;
+  color: var(--fabric-cryptotile-muted);
+  font-weight: var(--fabric-font-weight-medium);
+  line-height: 1;
+}
+
+/* Footer: Place Bid / Place Offer */
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  background-color: var(--fabric-cryptotile-footer-bg);
+  height: 28px;
+  align-items: stretch;
+}
+.footer > .divider {
+  width: 1px;
+  background-color: var(--fabric-cryptotile-divider);
+  height: 12px;
+  align-self: center;
+}
+
+.placeBtn {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--fabric-cryptotile-accent);
+  font: inherit;
+  font-size: var(--fabric-text-sm);
+  font-weight: var(--fabric-font-weight-semibold);
+  cursor: pointer;
+  transition: background-color 120ms, color 120ms;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeBtn:disabled {
+  color: var(--fabric-cryptotile-muted);
+  cursor: not-allowed;
+}
+
+.placeBtn:hover:not(:disabled) {
+  background-color: var(--fabric-cryptotile-sell-hover);
+}
+.placeBtn.offer:hover:not(:disabled) {
+  background-color: var(--fabric-cryptotile-buy-hover);
+}
+
+.placeBtn.active {
+  color: #FFFFFF;
+}
+.placeBtn.bid.active {
+  background-color: var(--fabric-cryptotile-bid-active-bg);
+}
+.placeBtn.offer.active {
+  background-color: var(--fabric-cryptotile-offer-active-bg);
+}
+
+/* Market Depth */
+.depth {
+  background-color: var(--fabric-cryptotile-bg);
+  padding-bottom: var(--fabric-spacing-md);
+}
+
+.depthGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  font-size: var(--fabric-text-md);
+  font-variant-numeric: tabular-nums;
+}
+
+.depthCell {
+  padding: var(--fabric-spacing-xxs) var(--fabric-spacing-sm);
+  color: var(--fabric-text-secondary);
+  white-space: nowrap;
+}
+
+.depthCell.size { color: var(--fabric-cryptotile-muted); }
+.depthCell.bid { color: var(--fabric-text-primary); }
+.depthCell.ask { color: var(--fabric-text-primary); }
+.depthCell.right { text-align: right; }
+
+.depthHeader {
+  font-size: var(--fabric-text-xs);
+  color: var(--fabric-cryptotile-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--fabric-spacing-sm) var(--fabric-spacing-md);
+  border-bottom: 1px solid var(--fabric-cryptotile-divider);
+}
+
+/* Limit Order Entry form */
+.orderForm {
+  background-color: var(--fabric-cryptotile-panel-bg);
+  padding: var(--fabric-spacing-md);
+}
+
+.orderTabs {
+  display: flex;
+  align-items: center;
+  gap: var(--fabric-spacing-xs);
+  background-color: var(--fabric-cryptotile-inset-bg);
+  padding: 2px;
+  border-radius: var(--fabric-radius-xs);
+  margin-bottom: var(--fabric-spacing-md);
+}
+
+.orderTab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 4px 12px;
+  font: inherit;
+  font-size: var(--fabric-text-md);
+  font-weight: var(--fabric-font-weight-semibold);
+  color: var(--fabric-cryptotile-muted);
+  cursor: pointer;
+  border-radius: var(--fabric-radius-xs);
+  white-space: nowrap;
+}
+.orderTab.activeTab {
+  color: var(--fabric-cryptotile-accent);
+  background-color: var(--fabric-cryptotile-bg);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--fabric-spacing-md);
+  margin-bottom: var(--fabric-spacing-md);
+}
+
+.formGrid.single { grid-template-columns: 1fr; }
+
+.orderActions {
+  display: flex;
+  gap: var(--fabric-spacing-md);
+  justify-content: flex-end;
+  margin-top: var(--fabric-spacing-lg);
+}
+
+.cancelBtn,
+.submitBtn {
+  height: 28px;
+  border-radius: var(--fabric-radius-xs);
+  border: 0;
+  padding: 0 var(--fabric-spacing-lg);
+  font: inherit;
+  font-size: var(--fabric-text-sm);
+  font-weight: var(--fabric-font-weight-semibold);
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background-color: var(--fabric-bg-secondary);
+  color: var(--fabric-text-primary);
+}
+.cancelBtn:hover { background-color: var(--fabric-bg-tertiary); }
+
+.submitBtn.bid {
+  background-color: var(--fabric-cryptotile-bid-active-bg);
+  color: #FFFFFF;
+}
+.submitBtn.offer {
+  background-color: var(--fabric-cryptotile-offer-active-bg);
+  color: #FFFFFF;
+}

@@ -347,6 +347,29 @@
   --fabric-chart-tile-value: var(--fabric-text-primary);
   --fabric-chart-tile-accent: var(--fabric-brand-500);
 
+  /* Component — CryptoTile (light) */
+  --fabric-cryptotile-bg: #FFFFFF;
+  --fabric-cryptotile-panel-bg: #FAFAFA;
+  --fabric-cryptotile-inset-bg: #F5F5F5;
+  --fabric-cryptotile-muted: var(--fabric-text-tertiary);
+  --fabric-cryptotile-label: #737373;
+  --fabric-cryptotile-value: var(--fabric-text-primary);
+  --fabric-cryptotile-accent: var(--fabric-brand-500);
+  --fabric-cryptotile-sell: #730000;
+  --fabric-cryptotile-buy: var(--fabric-brand-600);
+  --fabric-cryptotile-sell-hover: rgba(115, 0, 0, 0.06);
+  --fabric-cryptotile-buy-hover: rgba(103, 106, 198, 0.06);
+  --fabric-cryptotile-bid-active-bg: var(--fabric-error-600);
+  --fabric-cryptotile-offer-active-bg: var(--fabric-brand-600);
+  --fabric-cryptotile-status-auction-bg: var(--fabric-warning-100);
+  --fabric-cryptotile-status-auction-fg: var(--fabric-warning-800);
+  --fabric-cryptotile-status-halted-bg: var(--fabric-error-100);
+  --fabric-cryptotile-status-halted-fg: var(--fabric-error-700);
+  --fabric-cryptotile-status-closed-bg: var(--fabric-bg-tertiary);
+  --fabric-cryptotile-status-closed-fg: var(--fabric-text-secondary);
+  --fabric-cryptotile-footer-bg: var(--fabric-bg-secondary);
+  --fabric-cryptotile-divider: rgba(0, 0, 0, 0.06);
+
   /* Component — WatchList (light) */
   --fabric-watchlist-bg: #FFFFFF;
   --fabric-watchlist-surface: #FAFAFA;
@@ -456,6 +479,29 @@
   --fabric-chart-tile-label: #737373;
   --fabric-chart-tile-value: #D6D6D6;
   --fabric-chart-tile-accent: var(--fabric-brand-400);
+
+  /* Component — CryptoTile (dark) */
+  --fabric-cryptotile-bg: #0F0F0F;
+  --fabric-cryptotile-panel-bg: #141414;
+  --fabric-cryptotile-inset-bg: #1F1F1F;
+  --fabric-cryptotile-muted: #737373;
+  --fabric-cryptotile-label: #737373;
+  --fabric-cryptotile-value: #F7F7F7;
+  --fabric-cryptotile-accent: #A7A9FA;
+  --fabric-cryptotile-sell: #F63D68;
+  --fabric-cryptotile-buy: #8184F8;
+  --fabric-cryptotile-sell-hover: rgba(246, 61, 104, 0.08);
+  --fabric-cryptotile-buy-hover: rgba(129, 132, 248, 0.08);
+  --fabric-cryptotile-bid-active-bg: #E31B54;
+  --fabric-cryptotile-offer-active-bg: #676AC6;
+  --fabric-cryptotile-status-auction-bg: #FEF0C7;
+  --fabric-cryptotile-status-auction-fg: #7A2E0E;
+  --fabric-cryptotile-status-halted-bg: rgba(246, 61, 104, 0.2);
+  --fabric-cryptotile-status-halted-fg: #F7F7F7;
+  --fabric-cryptotile-status-closed-bg: rgba(255, 255, 255, 0.08);
+  --fabric-cryptotile-status-closed-fg: #F7F7F7;
+  --fabric-cryptotile-footer-bg: #141414;
+  --fabric-cryptotile-divider: rgba(255, 255, 255, 0.06);
 
   /* Component — WatchList (dark) */
   --fabric-watchlist-bg: #141414;
