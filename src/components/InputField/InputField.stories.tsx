@@ -4,6 +4,7 @@ import { InputField } from "./InputField";
 const meta: Meta<typeof InputField> = {
   title: "Components/InputField",
   component: InputField,
+  tags: ["autodocs"],
   args: {
     label: "Email",
     placeholder: "you@example.com",

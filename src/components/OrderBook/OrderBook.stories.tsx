@@ -78,6 +78,7 @@ function useBinanceBook(symbol: string, limit = 10, intervalMs = 2000) {
 const meta: Meta<typeof OrderBook> = {
   title: "Exchange components/OrderBook",
   component: OrderBook,
+  tags: ["autodocs"],
   parameters: { layout: "centered" },
 };
 export default meta;

@@ -64,6 +64,7 @@ function useBinanceBook(symbol: string, limit = 20, intervalMs = 2000) {
 const meta: Meta<typeof DepthChart> = {
   title: "Exchange components/DepthChart",
   component: DepthChart,
+  tags: ["autodocs"],
   parameters: { layout: "centered" },
 };
 export default meta;
