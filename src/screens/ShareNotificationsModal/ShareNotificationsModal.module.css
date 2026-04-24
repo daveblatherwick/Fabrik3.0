@@ -134,8 +134,7 @@
 .rName { font-size: var(--fabric-text-sm); font-weight: var(--fabric-font-weight-medium); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rSub  { font-size: var(--fabric-text-xs); color: var(--snm-text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.rBadge { font-size: var(--fabric-text-xs); font-weight: var(--fabric-font-weight-semibold); color: var(--snm-text-3); padding: 2px 6px; border-radius: var(--fabric-radius-full); background: var(--snm-panel-2); font-variant-numeric: tabular-nums; }
-.rBadge.has { color: var(--snm-brand-fg); background: var(--snm-brand-soft); }
+/* Recipient-count badge now rendered via <Badge>; the rItem grid accommodates it at its natural size. */
 
 .right { display: flex; flex-direction: column; min-height: 0; }
 .rightHead { display: flex; align-items: center; justify-content: space-between; gap: var(--fabric-spacing-md); padding: var(--fabric-spacing-md) var(--fabric-spacing-xl); border-bottom: 1px solid var(--snm-border); }
@@ -168,7 +167,8 @@
 
 .catName { flex: 1; font-size: var(--fabric-text-sm); font-weight: var(--fabric-font-weight-semibold); }
 .catCount { font-size: var(--fabric-text-xs); color: var(--snm-text-3); font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 4px; }
-.catCount .nSel { color: var(--snm-brand-fg); font-weight: var(--fabric-font-weight-semibold); }
+.catCountZero { font-weight: var(--fabric-font-weight-semibold); }
+.catCountTotal { color: var(--snm-text-3); }
 
 .catMaster {
   display: inline-flex; align-items: center; gap: var(--fabric-spacing-xs);
@@ -204,10 +204,9 @@
 
 .copyFromSheet { position: absolute; top: calc(100% + 6px); right: 0; width: 280px; background: var(--snm-panel); border: 1px solid var(--snm-border-2); border-radius: var(--fabric-radius-md); box-shadow: var(--fabric-shadow-md); padding: 6px; z-index: 10; }
 .cfHead { padding: var(--fabric-spacing-sm) var(--fabric-spacing-md); font-size: var(--fabric-text-xs); font-weight: var(--fabric-font-weight-semibold); color: var(--snm-text-3); text-transform: uppercase; letter-spacing: .08em; display: flex; justify-content: space-between; }
-.cfItem { display: flex; align-items: center; gap: var(--fabric-spacing-md); width: 100%; padding: var(--fabric-spacing-sm) var(--fabric-spacing-md); background: transparent; border: 0; border-radius: var(--fabric-radius-xs); color: var(--snm-text-2); text-align: left; cursor: pointer; }
-.cfItem:hover { background: var(--snm-panel-2); color: var(--snm-text-1); }
-.cfName { font-size: var(--fabric-text-sm); font-weight: var(--fabric-font-weight-medium); color: var(--snm-text-1); }
-.cfSub { font-size: var(--fabric-text-xs); color: var(--snm-text-3); }
+/* Rows now use <DropdownItem>; styling of name / sub stacked inside its `children` slot. */
+.cfName { display: block; font-size: var(--fabric-text-sm); font-weight: var(--fabric-font-weight-medium); color: var(--snm-text-1); line-height: 1.3; }
+.cfSub { display: block; font-size: var(--fabric-text-xs); color: var(--snm-text-3); line-height: 1.3; }
 
 .sourceToast { position: absolute; top: 72px; right: 28px; width: 360px; background: var(--snm-panel); border: 1px solid var(--snm-border-2); border-left: 3px solid var(--snm-warning); border-radius: var(--fabric-radius-md); padding: var(--fabric-spacing-md); box-shadow: var(--fabric-shadow-lg); display: flex; gap: var(--fabric-spacing-md); opacity: .92; pointer-events: none; }
 .sourceIcon { width: 28px; height: 28px; border-radius: var(--fabric-radius-xs); background: color-mix(in srgb, var(--snm-warning) 14%, transparent); color: var(--snm-warning); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }

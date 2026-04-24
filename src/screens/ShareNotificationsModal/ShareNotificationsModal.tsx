@@ -9,6 +9,8 @@ import {
 import { Button } from "../../components/Button/Button";
 import { Checkbox } from "../../components/Checkbox/Checkbox";
 import { InputField } from "../../components/InputField/InputField";
+import { Badge } from "../../components/Badge/Badge";
+import { DropdownItem } from "../../components/DropdownItem/DropdownItem";
 import styles from "./ShareNotificationsModal.module.css";
 import {
   TEAMS as DEFAULT_TEAMS,
@@ -212,7 +214,7 @@ export const ShareNotificationsModal: FC<ShareNotificationsModalProps> = ({
                         <span className={styles.rName}>{highlight(g.name, query)}</span>
                         <span className={styles.rSub}>{g.members} members · {g.note}</span>
                       </span>
-                      <span className={cx(styles.rBadge, n > 0 && styles.has)}>{n > 0 ? n : "—"}</span>
+                      <Badge color={n > 0 ? "brand" : "gray"} size="sm">{n > 0 ? n : "—"}</Badge>
                     </button>
                   );
                 })}
@@ -249,8 +251,10 @@ export const ShareNotificationsModal: FC<ShareNotificationsModalProps> = ({
                           <span className={cx(styles.catIcon, styles[cat.tone])}><Glyph/></span>
                           <span className={styles.catName}>{cat.name}</span>
                           <span className={styles.catCount}>
-                            {sel.length > 0 ? <span className={styles.nSel}>{sel.length}</span> : <span>0</span>}
-                            <span>/ {cat.steps.length}</span>
+                            {sel.length > 0
+                              ? <Badge color="brand" size="sm">{sel.length}</Badge>
+                              : <span className={styles.catCountZero}>0</span>}
+                            <span className={styles.catCountTotal}>/ {cat.steps.length}</span>
                           </span>
                           <span
                             className={cx(styles.catMaster, allOn && styles.all)}
@@ -339,21 +343,21 @@ const CopyFromSheet: FC<{
     return () => document.removeEventListener("mousedown", h);
   }, [onClose]);
   return (
-    <div ref={ref} className={styles.copyFromSheet}>
+    <div ref={ref} className={styles.copyFromSheet} role="menu">
       <div className={styles.cfHead}><span>Copy from</span><span>last 30 days</span></div>
       {presets.map((p) => {
         const g = groups.find((g) => g.id === p.id);
         const stepCount = Object.values(p.config).reduce((a, b) => a + b.length, 0);
         return (
-          <button key={p.id} className={styles.cfItem} onClick={() => onPick(p)}>
-            <span className={cx(styles.avatar, styles.group)}>{initials(g?.name ?? p.label)}</span>
-            <span style={{ flex: 1, minWidth: 0 }}>
-              <span className={styles.cfName}>{g?.name ?? p.label}</span>
-              <br/>
-              <span className={styles.cfSub}>{stepCount} steps across {Object.keys(p.config).length} categories</span>
-            </span>
-            <ChevRight/>
-          </button>
+          <DropdownItem
+            key={p.id}
+            onClick={() => onPick(p)}
+            icon={<span className={cx(styles.avatar, styles.group)}>{initials(g?.name ?? p.label)}</span>}
+            meta={<ChevRight/>}
+          >
+            <span className={styles.cfName}>{g?.name ?? p.label}</span>
+            <span className={styles.cfSub}>{stepCount} steps across {Object.keys(p.config).length} categories</span>
+          </DropdownItem>
         );
       })}
     </div>
