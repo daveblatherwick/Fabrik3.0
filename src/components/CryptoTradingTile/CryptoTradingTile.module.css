@@ -138,7 +138,7 @@
 
 /* Market status pill that replaces/complements the spread badge */
 .statusPill {
-  padding: 2px 8px;
+  padding: var(--fabric-spacing-xxs) var(--fabric-spacing-md);
   border-radius: var(--fabric-radius-full);
   font-size: var(--fabric-text-xs);
   font-weight: var(--fabric-font-weight-semibold);
@@ -286,7 +286,7 @@
   appearance: none;
   border: 0;
   background: transparent;
-  padding: 4px 12px;
+  padding: var(--fabric-spacing-xs) var(--fabric-spacing-lg);
   font: inherit;
   font-size: var(--fabric-text-md);
   font-weight: var(--fabric-font-weight-semibold);

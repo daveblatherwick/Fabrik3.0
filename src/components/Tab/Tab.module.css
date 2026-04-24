@@ -45,7 +45,7 @@
   margin-left: var(--fabric-spacing-sm);
   display: inline-flex;
   align-items: center;
-  padding: 0 6px;
+  padding: 0 var(--fabric-spacing-sm);
   height: 18px;
   background-color: var(--fabric-bg-tertiary);
   color: var(--fabric-text-tertiary);

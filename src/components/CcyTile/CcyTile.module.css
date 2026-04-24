@@ -209,7 +209,7 @@
   appearance: none;
   background-color: var(--fabric-ccytile-surface);
   border: 0;
-  padding: 4px 8px;
+  padding: var(--fabric-spacing-xs) var(--fabric-spacing-md);
   border-radius: var(--fabric-radius-xs);
   font: inherit;
   font-size: var(--fabric-text-xs);
