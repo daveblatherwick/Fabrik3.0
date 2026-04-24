@@ -355,8 +355,10 @@ const CopyFromSheet: FC<{
             icon={<span className={cx(styles.avatar, styles.group)}>{initials(g?.name ?? p.label)}</span>}
             meta={<ChevRight/>}
           >
-            <span className={styles.cfName}>{g?.name ?? p.label}</span>
-            <span className={styles.cfSub}>{stepCount} steps across {Object.keys(p.config).length} categories</span>
+            <span className={styles.cfLabel}>
+              <span className={styles.cfName}>{g?.name ?? p.label}</span>
+              <span className={styles.cfSub}>{stepCount} steps across {Object.keys(p.config).length} categories</span>
+            </span>
           </DropdownItem>
         );
       })}
