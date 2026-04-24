@@ -72,8 +72,19 @@ const positions = [
   { symbol: "AUD/NZD", qty: 50_000, px: 1.0734, pnl: -58.90 },
 ];
 
-const fmt = (n: number, opts: Intl.NumberFormatOptions = {}) =>
-  new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 4, ...opts }).format(n);
+const fmt = (n: number, opts: Intl.NumberFormatOptions = {}) => {
+  const merged: Intl.NumberFormatOptions = { minimumFractionDigits: 2, maximumFractionDigits: 4, ...opts };
+  // If the caller sets maximumFractionDigits below the default minimum,
+  // clamp minimum so Intl doesn't throw RangeError (min must be <= max).
+  if (
+    merged.maximumFractionDigits != null &&
+    merged.minimumFractionDigits != null &&
+    merged.minimumFractionDigits > merged.maximumFractionDigits
+  ) {
+    merged.minimumFractionDigits = merged.maximumFractionDigits;
+  }
+  return new Intl.NumberFormat("en-US", merged).format(n);
+};
 
 // Extracted as a real React component so useState is called inside a
 // function component (not in an anonymous render callback).
