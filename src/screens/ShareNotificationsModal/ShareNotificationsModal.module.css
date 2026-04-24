@@ -90,7 +90,7 @@
 
 .copyFromWrap { position: relative; }
 
-.chipRow { display: flex; flex-wrap: wrap; gap: var(--fabric-spacing-sm); padding: 0 var(--fabric-spacing-xl) var(--fabric-spacing-md); border-bottom: 1px solid var(--snm-border); }
+.chipRow { display: flex; flex-wrap: wrap; gap: var(--fabric-spacing-sm); padding: var(--fabric-spacing-md) var(--fabric-spacing-xl); border-bottom: 1px solid var(--snm-border); }
 .chip {
   display: inline-flex; align-items: center; gap: var(--fabric-spacing-sm);
   padding: var(--fabric-spacing-xs) var(--fabric-spacing-md);
