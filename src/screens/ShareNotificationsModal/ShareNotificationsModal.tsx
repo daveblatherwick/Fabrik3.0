@@ -193,7 +193,8 @@ export const ShareNotificationsModal: FC<ShareNotificationsModalProps> = ({
                   const n = t.id === "all" ? groups.length : groups.filter((g) => g.team === t.id).length;
                   return (
                     <button key={t.id} className={cx(styles.chip, on && styles.on)} onClick={() => setTeamFilter(t.id)}>
-                      {t.name} <span className={styles.n}>{n}</span>
+                      <span>{t.name}</span>
+                      <Badge color={on ? "brand" : "gray"} size="sm">{n}</Badge>
                     </button>
                   );
                 })}

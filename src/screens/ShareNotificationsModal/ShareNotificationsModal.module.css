@@ -92,8 +92,8 @@
 
 .chipRow { display: flex; flex-wrap: wrap; gap: var(--fabric-spacing-sm); padding: 0 var(--fabric-spacing-xl) var(--fabric-spacing-md); border-bottom: 1px solid var(--snm-border); }
 .chip {
-  display: inline-flex; align-items: center; gap: var(--fabric-spacing-xs);
-  height: 22px; padding: 0 var(--fabric-spacing-sm);
+  display: inline-flex; align-items: center; gap: var(--fabric-spacing-sm);
+  padding: var(--fabric-spacing-xs) var(--fabric-spacing-md);
   border-radius: var(--fabric-radius-full);
   background: var(--snm-panel-2); border: 1px solid var(--snm-border-2);
   color: var(--snm-text-2); font-size: var(--fabric-text-xs); font-weight: var(--fabric-font-weight-medium);
@@ -101,7 +101,6 @@
 }
 .chip:hover { color: var(--snm-text-1); }
 .chip.on { background: var(--snm-brand-soft); border-color: var(--snm-brand-soft-2); color: var(--snm-brand-fg); }
-.chip .n { color: var(--snm-text-4); }
 
 .body { display: grid; grid-template-columns: 260px 1fr; flex: 1; min-height: 0; }
 
